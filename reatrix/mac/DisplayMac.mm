@@ -1,0 +1,211 @@
+//
+//  DisplayMac.m
+//  Reatrix
+//
+//  Created by Lyn on 2018/6/2.
+//  Copyright © 2018 Vin-Ex. All rights reserved.
+//
+
+#include "DisplayMac.h"
+#import <Cocoa/Cocoa.h>
+
+#import <OpenGL/gl3.h>
+
+using namespace rtx;
+
+@interface OpenGLView : NSOpenGLView
+{
+    CVDisplayLinkRef displayLink;
+    bool stop;
+}
+@end
+
+@implementation OpenGLView;
+
+- (instancetype)initWithFrame:(NSRect)frameRect pixelFormat:(NSOpenGLPixelFormat *)format
+{
+    self = [super initWithFrame:frameRect pixelFormat:format];
+    NSTrackingArea* area = [[NSTrackingArea alloc] initWithRect:self.bounds
+                                                        options:NSTrackingMouseMoved | NSTrackingActiveInKeyWindow
+                                                          owner:self
+                                                       userInfo:nil];
+    [self addTrackingArea:area];
+    return self;
+}
+
+- (void)prepareOpenGL
+{
+    stop = false;
+    
+    GLint swapInt = 1;
+    [[self openGLContext] setValues:&swapInt forParameter:NSOpenGLContextParameterSwapInterval];
+    CVDisplayLinkCreateWithActiveCGDisplays(&displayLink);
+    CVDisplayLinkSetOutputCallback(displayLink, &outputFrame, (__bridge void * _Nullable)(self));
+    CGLContextObj cglContext = [[self openGLContext] CGLContextObj];
+    CGLPixelFormatObj cglPixelFormat = [[self pixelFormat] CGLPixelFormatObj];
+    CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink, cglContext, cglPixelFormat);
+    CVDisplayLinkStart(displayLink);
+}
+
+static CVReturn outputFrame(CVDisplayLinkRef displayLink, const CVTimeStamp* now, const CVTimeStamp* outputTime,
+                            CVOptionFlags flagsIn, CVOptionFlags* flagsOut, void* displayLinkContext)
+{
+    CVReturn result = [(__bridge OpenGLView*)displayLinkContext drawFrame:outputTime];
+    return result;
+}
+
+- (CVReturn)drawFrame:(const CVTimeStamp*)outputTime
+{
+    if (stop == false)
+    {
+//        auto game = rtx::Game::current();
+//        auto display = ((rtx::DisplayMac*) rtx::Graphics::get_display());
+//        display->display_lock();
+//
+//        int width = display->get_target_width();
+//        int height = display->get_target_height();
+//        if (width != display->get_width() ||
+//            height != display->get_height())
+//        {
+//            game->on_resize(width, height);
+//        }
+//
+//        [[self openGLContext] makeCurrentContext];
+//        game->on_update();
+//        game->on_draw();
+//        [[self openGLContext] flushBuffer];
+//
+//        display->display_unlock();
+    }
+    
+    return kCVReturnSuccess;
+}
+
+- (void)stopRender
+{
+    stop = true;
+    
+    CVDisplayLinkStop(displayLink);
+    CVDisplayLinkRelease(displayLink);
+}
+
+- (void)mouseDown:(NSEvent *)event
+{
+    
+}
+
+- (void)mouseUp:(NSEvent *)event
+{
+    
+}
+
+- (void)mouseMoved:(NSEvent *)event
+{
+    
+}
+
+- (void)mouseDragged:(NSEvent *)event
+{
+    
+}
+
+@end
+
+@interface ViewController : NSViewController
+@property (weak, nonatomic) NSWindow* window;
+@property (strong, nonatomic) NSOpenGLPixelFormat* pixelFormat;
+@end
+
+@implementation ViewController;
+
+- (void)loadView
+{
+    CGSize size = self.window.contentLayoutRect.size;
+    size = [self.window contentRectForFrameRect:self.window.contentLayoutRect].size;
+    
+    const uint32_t attrs[] =
+    {
+        NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion4_1Core,
+        NSOpenGLPFADoubleBuffer,
+        NSOpenGLPFAColorSize, 24,
+        NSOpenGLPFADepthSize, 24,
+        0
+    };
+    self.pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
+    NSOpenGLView* view = [[OpenGLView alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height) pixelFormat:self.pixelFormat];
+    
+    auto context = [view openGLContext];
+    [context makeCurrentContext];
+    
+    self.view = view;
+}
+
+@end
+
+namespace rtx
+{
+    
+    static ViewController* s_view_controller;
+    static NSOpenGLContext* s_shared_context;
+    
+    void DisplayMac::init(int width, int height, int fps)
+    {
+        _target_width = width;
+        _target_height = height;
+        
+        DisplayBase::init(width, height, fps);
+        
+        auto style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
+        auto frame = [NSWindow frameRectForContentRect:NSMakeRect(0, 0, width, height) styleMask:style];
+        
+        NSWindow* window = [[NSWindow alloc] initWithContentRect:frame styleMask:style backing:NSBackingStoreBuffered defer:TRUE];
+        window.title = @"Reatrix Demo";
+        [window center];
+        [window makeKeyAndOrderFront:window];
+        
+        s_view_controller = [[ViewController alloc] init];
+        s_view_controller.window = window;
+        window.contentViewController = s_view_controller;
+        
+        _window = (void*) CFBridgingRetain(window);
+    }
+    
+    void DisplayMac::deinit()
+    {
+        s_view_controller = nil;
+    }
+    
+    void DisplayMac::stopRender()
+    {
+        auto view = (OpenGLView*) s_view_controller.view;
+        [view stopRender];
+    }
+    
+    void* DisplayMac::getWindowBridge()
+    {
+        return _window;
+    }
+    
+    void DisplayMac::bindDefaultFramebuffer()
+    {
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    }
+    
+    void DisplayMac::createSharedContext()
+    {
+        auto view = (OpenGLView*) s_view_controller.view;
+        s_shared_context = [[NSOpenGLContext alloc] initWithFormat:s_view_controller.pixelFormat shareContext:[view openGLContext]];
+        [s_shared_context makeCurrentContext];
+    }
+    
+    void DisplayMac::destroySharedContext()
+    {
+        s_shared_context = nil;
+    }
+    
+    void DisplayMac::onWillResize(int width, int height)
+    {
+        
+    }
+    
+}

@@ -8,22 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		FA7E0C1722978E9400AB6ADE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E0C1622978E9400AB6ADE /* AppDelegate.m */; };
-		FA7E0C1A22978E9400AB6ADE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E0C1922978E9400AB6ADE /* ViewController.m */; };
 		FA7E0C1C22978E9600AB6ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7E0C1B22978E9600AB6ADE /* Assets.xcassets */; };
-		FA7E0C1F22978E9600AB6ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7E0C1D22978E9600AB6ADE /* Main.storyboard */; };
 		FA7E0C2222978E9600AB6ADE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E0C2122978E9600AB6ADE /* main.m */; };
+		FAAC27762298195600D89220 /* DisplayMac.mm in Sources */ = {isa = PBXBuildFile; fileRef = FAAC27722298195600D89220 /* DisplayMac.mm */; };
+		FAAC27772298195600D89220 /* DisplayBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAAC27742298195600D89220 /* DisplayBase.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA7E0C1222978E9400AB6ADE /* ReatrixDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReatrixDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7E0C1522978E9400AB6ADE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA7E0C1622978E9400AB6ADE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FA7E0C1822978E9400AB6ADE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FA7E0C1922978E9400AB6ADE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FA7E0C1B22978E9600AB6ADE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA7E0C1E22978E9600AB6ADE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA7E0C2022978E9600AB6ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA7E0C2122978E9600AB6ADE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FAAC27712298195600D89220 /* DisplayMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayMac.h; sourceTree = "<group>"; };
+		FAAC27722298195600D89220 /* DisplayMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DisplayMac.mm; sourceTree = "<group>"; };
+		FAAC27742298195600D89220 /* DisplayBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayBase.cpp; sourceTree = "<group>"; };
+		FAAC27752298195600D89220 /* DisplayBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayBase.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,16 +57,42 @@
 		FA7E0C1422978E9400AB6ADE /* ReatrixDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FAAC276F2298195600D89220 /* reatrix */,
 				FA7E0C1522978E9400AB6ADE /* AppDelegate.h */,
 				FA7E0C1622978E9400AB6ADE /* AppDelegate.m */,
-				FA7E0C1822978E9400AB6ADE /* ViewController.h */,
-				FA7E0C1922978E9400AB6ADE /* ViewController.m */,
 				FA7E0C1B22978E9600AB6ADE /* Assets.xcassets */,
-				FA7E0C1D22978E9600AB6ADE /* Main.storyboard */,
 				FA7E0C2022978E9600AB6ADE /* Info.plist */,
 				FA7E0C2122978E9600AB6ADE /* main.m */,
 			);
 			path = ReatrixDemo;
+			sourceTree = "<group>";
+		};
+		FAAC276F2298195600D89220 /* reatrix */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC27702298195600D89220 /* mac */,
+				FAAC27732298195600D89220 /* display */,
+			);
+			name = reatrix;
+			path = ../../../../reatrix;
+			sourceTree = "<group>";
+		};
+		FAAC27702298195600D89220 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC27712298195600D89220 /* DisplayMac.h */,
+				FAAC27722298195600D89220 /* DisplayMac.mm */,
+			);
+			path = mac;
+			sourceTree = "<group>";
+		};
+		FAAC27732298195600D89220 /* display */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC27742298195600D89220 /* DisplayBase.cpp */,
+				FAAC27752298195600D89220 /* DisplayBase.h */,
+			);
+			path = display;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +153,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7E0C1C22978E9600AB6ADE /* Assets.xcassets in Resources */,
-				FA7E0C1F22978E9600AB6ADE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,24 +163,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA7E0C1A22978E9400AB6ADE /* ViewController.m in Sources */,
+				FAAC27772298195600D89220 /* DisplayBase.cpp in Sources */,
+				FAAC27762298195600D89220 /* DisplayMac.mm in Sources */,
 				FA7E0C2222978E9600AB6ADE /* main.m in Sources */,
 				FA7E0C1722978E9400AB6ADE /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FA7E0C1D22978E9600AB6ADE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA7E0C1E22978E9600AB6ADE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FA7E0C2422978E9600AB6ADE /* Debug */ = {

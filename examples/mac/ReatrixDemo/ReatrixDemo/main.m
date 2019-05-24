@@ -2,8 +2,8 @@
 //  main.m
 //  ReatrixDemo
 //
-//  Created by Shamoo Zhou on 2019/5/24.
-//  Copyright © 2019 Lyn. All rights reserved.
+//  Created by Lyn on 2019/5/24.
+//  Copyright © 2019 Vin-Ex. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
