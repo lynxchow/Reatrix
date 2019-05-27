@@ -13,6 +13,9 @@
 
 using namespace rtx;
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
 @interface OpenGLView : NSOpenGLView
 {
     CVDisplayLinkRef displayLink;
@@ -209,3 +212,5 @@ namespace rtx
     }
     
 }
+
+#pragma GCC diagnostic pop
