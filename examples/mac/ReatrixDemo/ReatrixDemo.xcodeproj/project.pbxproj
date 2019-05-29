@@ -7,24 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D470DD2D229ED58900C3CBEF /* DisplayMac.mm in Sources */ = {isa = PBXBuildFile; fileRef = D470DD29229ED58800C3CBEF /* DisplayMac.mm */; };
+		D470DD2E229ED58900C3CBEF /* DisplayBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D470DD2B229ED58800C3CBEF /* DisplayBase.cpp */; };
+		D470DD31229ED64500C3CBEF /* Reatrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = D470DD30229ED64500C3CBEF /* Reatrix.mm */; };
+		D470DD54229EDF9D00C3CBEF /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D470DD52229EDF9D00C3CBEF /* ViewController.mm */; };
 		FA7E0C1722978E9400AB6ADE /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA7E0C1622978E9400AB6ADE /* AppDelegate.mm */; };
 		FA7E0C1C22978E9600AB6ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7E0C1B22978E9600AB6ADE /* Assets.xcassets */; };
 		FA7E0C2222978E9600AB6ADE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E0C2122978E9600AB6ADE /* main.m */; };
-		FAAC27762298195600D89220 /* DisplayMac.mm in Sources */ = {isa = PBXBuildFile; fileRef = FAAC27722298195600D89220 /* DisplayMac.mm */; };
-		FAAC27772298195600D89220 /* DisplayBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAAC27742298195600D89220 /* DisplayBase.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D470DD28229ED58800C3CBEF /* DisplayMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayMac.h; sourceTree = "<group>"; };
+		D470DD29229ED58800C3CBEF /* DisplayMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DisplayMac.mm; sourceTree = "<group>"; };
+		D470DD2B229ED58800C3CBEF /* DisplayBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayBase.cpp; sourceTree = "<group>"; };
+		D470DD2C229ED58800C3CBEF /* DisplayBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayBase.h; sourceTree = "<group>"; };
+		D470DD2F229ED64500C3CBEF /* Reatrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reatrix.h; sourceTree = "<group>"; };
+		D470DD30229ED64500C3CBEF /* Reatrix.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Reatrix.mm; sourceTree = "<group>"; };
+		D470DD52229EDF9D00C3CBEF /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		D470DD53229EDF9D00C3CBEF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FA7E0C1222978E9400AB6ADE /* ReatrixDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReatrixDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7E0C1522978E9400AB6ADE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA7E0C1622978E9400AB6ADE /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		FA7E0C1B22978E9600AB6ADE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA7E0C2022978E9600AB6ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA7E0C2122978E9600AB6ADE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FAAC27712298195600D89220 /* DisplayMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayMac.h; sourceTree = "<group>"; };
-		FAAC27722298195600D89220 /* DisplayMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DisplayMac.mm; sourceTree = "<group>"; };
-		FAAC27742298195600D89220 /* DisplayBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayBase.cpp; sourceTree = "<group>"; };
-		FAAC27752298195600D89220 /* DisplayBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayBase.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D470DD26229ED58800C3CBEF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D470DD27229ED58800C3CBEF /* mac */,
+				D470DD2A229ED58800C3CBEF /* display */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		D470DD27229ED58800C3CBEF /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				D470DD28229ED58800C3CBEF /* DisplayMac.h */,
+				D470DD29229ED58800C3CBEF /* DisplayMac.mm */,
+				D470DD2F229ED64500C3CBEF /* Reatrix.h */,
+				D470DD30229ED64500C3CBEF /* Reatrix.mm */,
+			);
+			path = mac;
+			sourceTree = "<group>";
+		};
+		D470DD2A229ED58800C3CBEF /* display */ = {
+			isa = PBXGroup;
+			children = (
+				D470DD2B229ED58800C3CBEF /* DisplayBase.cpp */,
+				D470DD2C229ED58800C3CBEF /* DisplayBase.h */,
+			);
+			path = display;
+			sourceTree = "<group>";
+		};
 		FA7E0C0922978E9400AB6ADE = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +95,8 @@
 				FAAC276F2298195600D89220 /* reatrix */,
 				FA7E0C1522978E9400AB6ADE /* AppDelegate.h */,
 				FA7E0C1622978E9400AB6ADE /* AppDelegate.mm */,
+				D470DD53229EDF9D00C3CBEF /* ViewController.h */,
+				D470DD52229EDF9D00C3CBEF /* ViewController.mm */,
 				FA7E0C1B22978E9600AB6ADE /* Assets.xcassets */,
 				FA7E0C2022978E9600AB6ADE /* Info.plist */,
 				FA7E0C2122978E9600AB6ADE /* main.m */,
@@ -70,29 +107,10 @@
 		FAAC276F2298195600D89220 /* reatrix */ = {
 			isa = PBXGroup;
 			children = (
-				FAAC27702298195600D89220 /* mac */,
-				FAAC27732298195600D89220 /* display */,
+				D470DD26229ED58800C3CBEF /* src */,
 			);
 			name = reatrix;
 			path = ../../../../reatrix;
-			sourceTree = "<group>";
-		};
-		FAAC27702298195600D89220 /* mac */ = {
-			isa = PBXGroup;
-			children = (
-				FAAC27712298195600D89220 /* DisplayMac.h */,
-				FAAC27722298195600D89220 /* DisplayMac.mm */,
-			);
-			path = mac;
-			sourceTree = "<group>";
-		};
-		FAAC27732298195600D89220 /* display */ = {
-			isa = PBXGroup;
-			children = (
-				FAAC27742298195600D89220 /* DisplayBase.cpp */,
-				FAAC27752298195600D89220 /* DisplayBase.h */,
-			);
-			path = display;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,9 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAAC27772298195600D89220 /* DisplayBase.cpp in Sources */,
-				FAAC27762298195600D89220 /* DisplayMac.mm in Sources */,
+				D470DD54229EDF9D00C3CBEF /* ViewController.mm in Sources */,
 				FA7E0C2222978E9600AB6ADE /* main.m in Sources */,
+				D470DD2E229ED58900C3CBEF /* DisplayBase.cpp in Sources */,
+				D470DD2D229ED58900C3CBEF /* DisplayMac.mm in Sources */,
+				D470DD31229ED64500C3CBEF /* Reatrix.mm in Sources */,
 				FA7E0C1722978E9400AB6ADE /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

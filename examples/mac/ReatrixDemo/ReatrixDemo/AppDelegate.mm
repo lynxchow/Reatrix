@@ -8,11 +8,9 @@
 
 #import "AppDelegate.h"
 #import "DisplayMac.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()<NSApplicationDelegate, NSWindowDelegate>
-{
-    rtx::DisplayMac *_display;
-}
 @property (strong, nonatomic) NSWindow* window;
 @end
 
@@ -20,19 +18,21 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    _display = new rtx::DisplayMac();
-    _display->init(1280, 720, 60);
+    auto style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
+    auto frame = [NSWindow frameRectForContentRect:NSMakeRect(0, 0, 1280, 720) styleMask:style];
     
-    self.window = (__bridge_transfer NSWindow*) _display->getWindowBridge();
+    self.window = [[NSWindow alloc] initWithContentRect:frame styleMask:style backing:NSBackingStoreBuffered defer:YES];
+    self.window.title = @"Reatrix Demo";
+    [self.window center];
+    [self.window makeKeyAndOrderFront:self.window];
+    
+    self.window.contentViewController = [[ViewController alloc] init];
     self.window.delegate = self;
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
     // Insert code here to tear down your application
-    _display->stopRender();
-    delete _display;
-    _display = nullptr;
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
