@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  ViewController.mm
 //  ReatrixDemo
 //
 //  Created by Lyn on 2019/5/29.
@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "Reatrix.h"
+#import "ReatrixMac.h"
+#include "DemoApplication.h"
 
 @interface ViewController()
 {
-    Reatrix *_rtx;
+    ReatrixMac *_rtx;
 }
 @end
 
@@ -21,10 +22,11 @@
 {
     NSWindow *window = [[NSApplication sharedApplication] keyWindow];
     CGSize size = [window contentRectForFrameRect:window.contentLayoutRect].size;
-    _rtx = [[Reatrix alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
+    _rtx = [[ReatrixMac alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
+    DemoApplication *application = new DemoApplication();
+    [_rtx loadApplication:application];
     self.view = _rtx.view;
 }
-
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];

@@ -10,6 +10,7 @@ get_filename_component(RTX_LIB_DIR
 
 include_directories(src/display)
 include_directories(src/mac)
+include_directories(src)
 #file(GLOB_RECURSE DIR_SRCS mac/*.cpp mac/*.h mac/*.c mac/*cc mac/*.m mac/*.mm)
 
 file(GLOB RTX_LIB_SRC
