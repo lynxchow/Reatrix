@@ -109,7 +109,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = Lyn;
+				ORGANIZATIONNAME = "Vin-Ex";
 				TargetAttributes = {
 					FA7E0C1122978E9400AB6ADE = {
 						CreatedOnToolsVersion = 10.1;

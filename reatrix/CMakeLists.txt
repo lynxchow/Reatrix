@@ -13,7 +13,7 @@ include_directories(src/mac)
 include_directories(src)
 #file(GLOB_RECURSE DIR_SRCS mac/*.cpp mac/*.h mac/*.c mac/*cc mac/*.m mac/*.mm)
 
-file(GLOB RTX_LIB_SRC
+file(GLOB RTX_LIB_SRCS
      ${RTX_LIB_DIR}/*.h
      ${RTX_LIB_DIR}/*.cpp
      ${RTX_LIB_DIR}/display/*.h
@@ -24,4 +24,5 @@ file(GLOB RTX_LIB_SRC
      ${RTX_LIB_DIR}/mac/*.mm
      )
 
-add_library(Reatrix ${RTX_LIB_SRC})
+source_group(TREE ${RTX_LIB_DIR}/.. FILES ${RTX_LIB_SRCS})
+add_library(Reatrix ${RTX_LIB_SRCS})
