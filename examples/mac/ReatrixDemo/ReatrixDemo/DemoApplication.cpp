@@ -7,6 +7,7 @@
 //
 
 #include "DemoApplication.h"
+#include "Timer.h"
 #include <OpenGL/gl3.h>
 #include <iostream>
 
@@ -119,6 +120,7 @@ void DemoApplication::destroy()
 
 void DemoApplication::update()
 {
+    std::cout << "fps: " << rtx::Timer::getFPS() << " delta time: " << rtx::Timer::getDeltaTime() << std::endl;
     glViewport(0, 0, 1280, 720);
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);

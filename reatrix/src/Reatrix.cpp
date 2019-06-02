@@ -70,7 +70,7 @@ namespace rtx
             {
                 s_application->init();
             }
-            s_application->update();
+            s_application->onUpdate();
         }
     }
 }

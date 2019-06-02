@@ -17,6 +17,7 @@ namespace rtx
     
     class Application
     {
+        friend class Reatrix;
     public:
         static Application *instance();
         Application();
@@ -28,6 +29,7 @@ namespace rtx
         const std::string& getName() const;
         void setName(const std::string& name);
     private:
+        void onUpdate();
         ApplicationImpl *_impl;
     };
     

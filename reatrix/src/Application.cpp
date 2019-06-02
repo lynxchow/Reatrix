@@ -7,6 +7,7 @@
 //
 
 #include "Application.h"
+#include "Timer.h"
 
 namespace rtx
 {
@@ -66,6 +67,12 @@ namespace rtx
     Application::~Application()
     {
         delete _impl;
+    }
+    
+    void Application::onUpdate()
+    {
+        Timer::update();
+        this->update();
     }
     
     void Application::init()
