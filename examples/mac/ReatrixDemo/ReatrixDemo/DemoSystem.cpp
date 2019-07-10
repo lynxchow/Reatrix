@@ -1,12 +1,12 @@
 //
-//  DemoApplication.cpp
+//  DemoSystem.cpp
 //  ReatrixDemo
 //
 //  Created by Lyn on 2019/5/30.
 //  Copyright © 2019 Vin-Ex. All rights reserved.
 //
 
-#include "DemoApplication.h"
+#include "DemoSystem.h"
 #include "Timer.h"
 #include <OpenGL/gl3.h>
 #include <iostream>
@@ -14,12 +14,12 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-DemoApplication::DemoApplication() : rtx::Application()
+DemoSystem::DemoSystem() : rtx::System()
 {
     
 }
 
-DemoApplication::~DemoApplication()
+DemoSystem::~DemoSystem()
 {
     
 }
@@ -38,7 +38,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
 "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
 "}\n\0";
 
-void DemoApplication::init()
+void DemoSystem::init()
 {
     int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -111,14 +111,14 @@ void DemoApplication::init()
     
 }
 
-void DemoApplication::destroy()
+void DemoSystem::destroy()
 {
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     glDeleteBuffers(1, &EBO);
 }
 
-void DemoApplication::update()
+void DemoSystem::onUpdate()
 {
     std::cout << "fps: " << rtx::Timer::getFPS() << " delta time: " << rtx::Timer::getDeltaTime() << std::endl;
     glViewport(0, 0, 1280, 720);

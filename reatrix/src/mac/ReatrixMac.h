@@ -13,13 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 namespace rtx
 {
-    class Application;
+    class Scene;
 };
 
 @interface ReatrixMac : NSObject
 - (instancetype)initWithFrame:(NSRect)frameRect;
 - (NSView *)view;
-- (BOOL)loadApplication:(rtx::Application *)app;
+- (BOOL)loadScene:(rtx::Scene *)scene;
 - (void)destroy;
 @end
 

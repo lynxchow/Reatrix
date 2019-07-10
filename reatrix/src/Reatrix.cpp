@@ -7,16 +7,67 @@
 //
 
 #include "Reatrix.h"
-#include "Application.h"
+#include "Scene.h"
+#include "Timer.h"
 
 namespace rtx
 {
-    Application *s_application = nullptr;
+    Scene *s_scene = nullptr;
+    
+    class ReatrixImpl
+    {
+    public:
+        ReatrixImpl()
+        {
+            
+        }
+        
+        bool loadScene(Scene *app)
+        {
+            s_scene = app;
+            return false;
+        }
+        
+        Scene *currentScene()
+        {
+            return s_scene;
+        }
+        
+        void init()
+        {
+            if (s_scene)
+            {
+                s_scene->init();
+            }
+        }
+        
+        void destroy()
+        {
+            if (s_scene)
+            {
+                s_scene->destroy();
+            }
+        }
+        
+        void update()
+        {
+            Timer::update();
+            if (s_scene)
+            {
+                if (!s_scene->isLoad())
+                {
+                    s_scene->init();
+                }
+                s_scene->update();
+            }
+        }
+        
+    };
     
     Reatrix *Reatrix::instance()
     {
         static Reatrix *s_instance = nullptr;
-        if (s_instance)
+        if (s_instance == nullptr)
         {
             s_instance = new Reatrix();
         }
@@ -26,51 +77,36 @@ namespace rtx
     
     Reatrix::Reatrix()
     {
-        
+        _impl = new ReatrixImpl();
     }
     
     Reatrix::~Reatrix()
     {
-        
+        delete _impl;
     }
     
-    bool Reatrix::loadApplication(Application *app)
+    bool Reatrix::loadScene(Scene *app)
     {
-        s_application = app;
-        
-        return true;
+        return _impl->loadScene(app);
     }
     
-    Application *Reatrix::currentApplication()
+    Scene *Reatrix::currentScene()
     {
-        return s_application;
+        return _impl->currentScene();
     }
     
     void Reatrix::init()
     {
-        if (s_application)
-        {
-            s_application->init();
-        }
+        _impl->init();
     }
     
     void Reatrix::destroy()
     {
-        if (s_application)
-        {
-            s_application->destroy();
-        }
+        _impl->destroy();
     }
     
-    void Reatrix::onUpdate()
+    void Reatrix::update()
     {
-        if (s_application)
-        {
-            if (!s_application->isLoad())
-            {
-                s_application->init();
-            }
-            s_application->onUpdate();
-        }
+        _impl->update();
     }
 }

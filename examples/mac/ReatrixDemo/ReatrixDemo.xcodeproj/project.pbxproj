@@ -12,7 +12,7 @@
 		FA7E0C1C22978E9600AB6ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7E0C1B22978E9600AB6ADE /* Assets.xcassets */; };
 		FA7E0C2222978E9600AB6ADE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E0C2122978E9600AB6ADE /* main.m */; };
 		FA9A4C2B229F7906000ED154 /* libReatrix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9A4C2A229F7906000ED154 /* libReatrix.a */; };
-		FA9A4C4422A00EBE000ED154 /* DemoApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA9A4C4222A00EBE000ED154 /* DemoApplication.cpp */; };
+		FA9A4C4422A00EBE000ED154 /* DemoSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA9A4C4222A00EBE000ED154 /* DemoSystem.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +25,8 @@
 		FA7E0C2022978E9600AB6ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA7E0C2122978E9600AB6ADE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA9A4C2A229F7906000ED154 /* libReatrix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReatrix.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA9A4C4222A00EBE000ED154 /* DemoApplication.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DemoApplication.cpp; sourceTree = "<group>"; };
-		FA9A4C4322A00EBE000ED154 /* DemoApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoApplication.h; sourceTree = "<group>"; };
+		FA9A4C4222A00EBE000ED154 /* DemoSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DemoSystem.cpp; sourceTree = "<group>"; };
+		FA9A4C4322A00EBE000ED154 /* DemoSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoSystem.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 				FA7E0C1622978E9400AB6ADE /* AppDelegate.mm */,
 				D470DD53229EDF9D00C3CBEF /* ViewController.h */,
 				D470DD52229EDF9D00C3CBEF /* ViewController.mm */,
-				FA9A4C4222A00EBE000ED154 /* DemoApplication.cpp */,
-				FA9A4C4322A00EBE000ED154 /* DemoApplication.h */,
+				FA9A4C4222A00EBE000ED154 /* DemoSystem.cpp */,
+				FA9A4C4322A00EBE000ED154 /* DemoSystem.h */,
 				FA7E0C1B22978E9600AB6ADE /* Assets.xcassets */,
 				FA7E0C2022978E9600AB6ADE /* Info.plist */,
 				FA7E0C2122978E9600AB6ADE /* main.m */,
@@ -151,7 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D470DD54229EDF9D00C3CBEF /* ViewController.mm in Sources */,
-				FA9A4C4422A00EBE000ED154 /* DemoApplication.cpp in Sources */,
+				FA9A4C4422A00EBE000ED154 /* DemoSystem.cpp in Sources */,
 				FA7E0C2222978E9600AB6ADE /* main.m in Sources */,
 				FA7E0C1722978E9400AB6ADE /* AppDelegate.mm in Sources */,
 			);

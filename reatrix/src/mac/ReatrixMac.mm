@@ -10,7 +10,7 @@
 #import <OpenGL/gl3.h>
 #include <iostream>
 #include "Reatrix.h"
-#include "Application.h"
+#include "Scene.h"
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -62,7 +62,7 @@ static CVReturn outputFrame(CVDisplayLinkRef displayLink, const CVTimeStamp* now
 {
     [[self openGLContext] makeCurrentContext];
     
-    rtx::Reatrix::instance()->onUpdate();
+    rtx::Reatrix::instance()->update();
     
     [[self openGLContext] flushBuffer];
     return kCVReturnSuccess;
@@ -133,9 +133,9 @@ static CVReturn outputFrame(CVDisplayLinkRef displayLink, const CVTimeStamp* now
     return _view;
 }
 
-- (BOOL)loadApplication:(rtx::Application *)app
+- (BOOL)loadScene:(rtx::Scene *)scene
 {
-    rtx::Reatrix::instance()->loadApplication(app);
+    rtx::Reatrix::instance()->loadScene(scene);
     return YES;
 }
 

@@ -12,8 +12,6 @@ namespace rtx
 {
     class Timer
     {
-        friend class Application;
-        
     public:
         static int getFrameCount() { return s_frame_count; }
         static float getTime() { return s_time; }
@@ -21,10 +19,9 @@ namespace rtx
         static float getDeltaTime() { return s_time_delta; }
         static long long getTimeMS();
         static int getFPS() { return s_fps; }
-        
-    private:
         static void update();
         
+    private:
         static long long s_time_startup;
         static float s_time_delta;
         static float s_time_record;

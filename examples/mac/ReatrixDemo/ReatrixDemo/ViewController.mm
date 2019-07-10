@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "ReatrixMac.h"
-#include "DemoApplication.h"
+#include "DemoSystem.h"
+#include "Scene.h"
 
 @interface ViewController()
 {
@@ -23,8 +24,10 @@
     NSWindow *window = [[NSApplication sharedApplication] keyWindow];
     CGSize size = [window contentRectForFrameRect:window.contentLayoutRect].size;
     _rtx = [[ReatrixMac alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
-    DemoApplication *application = new DemoApplication();
-    [_rtx loadApplication:application];
+    DemoSystem *system = new DemoSystem();
+    rtx::Scene *scene = new rtx::Scene();
+    scene->addSystem(system);
+    [_rtx loadScene:scene];
     self.view = _rtx.view;
 }
 

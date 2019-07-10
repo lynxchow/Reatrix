@@ -13,7 +13,9 @@
 
 namespace rtx
 {
-    class Application;
+    class Scene;
+    
+    class ReatrixImpl;
     
     class Reatrix
     {
@@ -23,11 +25,14 @@ namespace rtx
     public:
         static Reatrix *instance();
         virtual ~Reatrix();
-        bool loadApplication(Application *app);
-        Application *currentApplication();
+        bool loadScene(Scene *app);
+        Scene *currentScene();
         void init();
         void destroy();
-        void onUpdate();
+        void update();
+        
+    private:
+        ReatrixImpl *_impl;
     };
 };
 
