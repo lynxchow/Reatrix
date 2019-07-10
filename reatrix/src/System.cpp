@@ -8,52 +8,51 @@
 
 #include "System.h"
 
-namespace rtx
+NAMESPACE_RTX_BEGIN
+    
+System::System()
 {
     
-    System::System()
-    {
-        
-    }
-    
-    System::~System()
-    {
-        
-    }
-    
-    void System::init()
-    {
-        _isLoad = true;
-    }
-    
-    void System::onUpdate()
-    {
-        
-    }
-    
-    void System::update()
-    {
-        this->onUpdate();
-    }
-    
-    void System::destroy()
-    {
-        _isLoad = false;
-    }
-    
-    bool System::isLoad()
-    {
-        return _isLoad;
-    }
-    
-    const std::string& System::getName() const
-    {
-        return _name;
-    }
-    
-    void System::setName(const std::string& name)
-    {
-        _name = name;
-    }
+}
+
+System::~System()
+{
     
 }
+
+void System::init()
+{
+    _isLoad = true;
+}
+
+void System::onUpdate()
+{
+    
+}
+
+void System::update()
+{
+    this->onUpdate();
+}
+
+void System::destroy()
+{
+    _isLoad = false;
+}
+
+bool System::isLoad()
+{
+    return _isLoad;
+}
+
+const std::string& System::getName() const
+{
+    return _name;
+}
+
+void System::setName(const std::string& name)
+{
+    _name = name;
+}
+    
+NAMESPACE_RTX_END

@@ -10,30 +10,32 @@
 #define _RTX_REATRIX_H_
 
 #include <stdio.h>
+#include "Common.h"
 
-namespace rtx
+NAMESPACE_RTX_BEGIN
+
+class Scene;
+
+class ReatrixImpl;
+
+class Reatrix
 {
-    class Scene;
+private:
+    Reatrix();
     
-    class ReatrixImpl;
+public:
+    static Reatrix *instance();
+    virtual ~Reatrix();
+    bool loadScene(Scene *app);
+    Scene *currentScene();
+    void init();
+    void destroy();
+    void update();
     
-    class Reatrix
-    {
-    private:
-        Reatrix();
-        
-    public:
-        static Reatrix *instance();
-        virtual ~Reatrix();
-        bool loadScene(Scene *app);
-        Scene *currentScene();
-        void init();
-        void destroy();
-        void update();
-        
-    private:
-        ReatrixImpl *_impl;
-    };
+private:
+    ReatrixImpl *_impl;
 };
+
+NAMESPACE_RTX_END
 
 #endif /* Reatrix_h */

@@ -10,103 +10,104 @@
 #include "Scene.h"
 #include "Timer.h"
 
-namespace rtx
+NAMESPACE_RTX_BEGIN
+
+Scene *s_scene = nullptr;
+
+class ReatrixImpl
 {
-    Scene *s_scene = nullptr;
-    
-    class ReatrixImpl
+public:
+    ReatrixImpl()
     {
-    public:
-        ReatrixImpl()
-        {
-            
-        }
         
-        bool loadScene(Scene *app)
+    }
+    
+    bool loadScene(Scene *app)
+    {
+        s_scene = app;
+        return false;
+    }
+    
+    Scene *currentScene()
+    {
+        return s_scene;
+    }
+    
+    void init()
+    {
+        if (s_scene)
         {
-            s_scene = app;
-            return false;
+            s_scene->init();
         }
-        
-        Scene *currentScene()
+    }
+    
+    void destroy()
+    {
+        if (s_scene)
         {
-            return s_scene;
+            s_scene->destroy();
         }
-        
-        void init()
+    }
+    
+    void update()
+    {
+        Timer::update();
+        if (s_scene)
         {
-            if (s_scene)
+            if (!s_scene->isLoad())
             {
                 s_scene->init();
             }
+            s_scene->update();
         }
-        
-        void destroy()
-        {
-            if (s_scene)
-            {
-                s_scene->destroy();
-            }
-        }
-        
-        void update()
-        {
-            Timer::update();
-            if (s_scene)
-            {
-                if (!s_scene->isLoad())
-                {
-                    s_scene->init();
-                }
-                s_scene->update();
-            }
-        }
-        
-    };
-    
-    Reatrix *Reatrix::instance()
-    {
-        static Reatrix *s_instance = nullptr;
-        if (s_instance == nullptr)
-        {
-            s_instance = new Reatrix();
-        }
-        
-        return s_instance;
     }
     
-    Reatrix::Reatrix()
+};
+
+Reatrix *Reatrix::instance()
+{
+    static Reatrix *s_instance = nullptr;
+    if (s_instance == nullptr)
     {
-        _impl = new ReatrixImpl();
+        s_instance = new Reatrix();
     }
     
-    Reatrix::~Reatrix()
-    {
-        delete _impl;
-    }
-    
-    bool Reatrix::loadScene(Scene *app)
-    {
-        return _impl->loadScene(app);
-    }
-    
-    Scene *Reatrix::currentScene()
-    {
-        return _impl->currentScene();
-    }
-    
-    void Reatrix::init()
-    {
-        _impl->init();
-    }
-    
-    void Reatrix::destroy()
-    {
-        _impl->destroy();
-    }
-    
-    void Reatrix::update()
-    {
-        _impl->update();
-    }
+    return s_instance;
 }
+
+Reatrix::Reatrix()
+{
+    _impl = new ReatrixImpl();
+}
+
+Reatrix::~Reatrix()
+{
+    delete _impl;
+}
+
+bool Reatrix::loadScene(Scene *app)
+{
+    return _impl->loadScene(app);
+}
+
+Scene *Reatrix::currentScene()
+{
+    return _impl->currentScene();
+}
+
+void Reatrix::init()
+{
+    _impl->init();
+}
+
+void Reatrix::destroy()
+{
+    _impl->destroy();
+}
+
+void Reatrix::update()
+{
+    _impl->update();
+}
+
+NAMESPACE_RTX_END

@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "DisplayMac.h"
 #import "ViewController.h"
 
 @interface AppDelegate ()<NSApplicationDelegate, NSWindowDelegate>
