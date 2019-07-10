@@ -24,7 +24,7 @@
     NSWindow *window = [[NSApplication sharedApplication] keyWindow];
     CGSize size = [window contentRectForFrameRect:window.contentLayoutRect].size;
     _rtx = [[ReatrixMac alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
-    DemoSystem *system = new DemoSystem();
+    SharedPtr<DemoSystem> system = MakeShared<DemoSystem>();
     rtx::Scene *scene = new rtx::Scene();
     scene->addSystem(system);
     [_rtx loadScene:scene];

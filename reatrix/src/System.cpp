@@ -44,15 +44,5 @@ bool System::isLoad()
 {
     return _isLoad;
 }
-
-const std::string& System::getName() const
-{
-    return _name;
-}
-
-void System::setName(const std::string& name)
-{
-    _name = name;
-}
     
 NAMESPACE_RTX_END

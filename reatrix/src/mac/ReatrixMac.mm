@@ -143,6 +143,12 @@ static CVReturn outputFrame(CVDisplayLinkRef displayLink, const CVTimeStamp* now
 {
     rtx::Reatrix::instance()->destroy();
 }
+
+- (void)dealloc
+{
+    [self destroy];
+    [super dealloc];
+}
 @end
 
 #pragma GCC diagnostic pop

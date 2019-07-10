@@ -9,14 +9,16 @@
 #ifndef _RTX_SCENE_H_
 #define _RTX_SCENE_H_
 
-#include "Common.h"
+#include "Object.h"
+#include "SharedPtr.h"
 #include <string>
 #include <vector>
+
 
 NAMESPACE_RTX_BEGIN
 
 class System;
-class Scene
+class Scene : public Object
 {
 public:
     Scene();
@@ -25,19 +27,15 @@ public:
     virtual void update();
     virtual void destroy();
     bool isLoad();
-    const std::string& getName() const;
-    void setName(const std::string& name);
-    void addSystem(System *system);
+    void addSystem(SharedPtr<System> system);
     
 private:
     void onUpdate();
     
-    std::string _name;
     bool _isLoad;
-    std::vector<System *> _systems;
+    std::vector<SharedPtr<System> > _systems;
 };
     
 NAMESPACE_RTX_END
-
 
 #endif /* Scene_h */

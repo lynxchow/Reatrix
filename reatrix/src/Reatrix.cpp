@@ -25,7 +25,7 @@ public:
     bool loadScene(Scene *app)
     {
         s_scene = app;
-        return false;
+        return true;
     }
     
     Scene *currentScene()

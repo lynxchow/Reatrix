@@ -9,12 +9,12 @@
 #ifndef _RTX_SYSTEM_H_
 #define _RTX_SYSTEM_H_
 
-#include "Common.h"
+#include "Object.h"
 #include <string>
 
 NAMESPACE_RTX_BEGIN
 
-class System
+class System : public Object
 {
 public:
     System();
@@ -23,13 +23,10 @@ public:
     void update();
     virtual void destroy();
     bool isLoad();
-    const std::string& getName() const;
-    void setName(const std::string& name);
     
 private:
     virtual void onUpdate();
     
-    std::string _name;
     bool _isLoad;
 };
 

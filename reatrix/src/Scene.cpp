@@ -42,6 +42,7 @@ void Scene::destroy()
     {
         system->destroy();
     }
+    _systems.clear();
 }
 
 void Scene::update()
@@ -57,17 +58,7 @@ bool Scene::isLoad()
     return _isLoad;
 }
 
-const std::string& Scene::getName() const
-{
-    return _name;
-}
-
-void Scene::setName(const std::string& name)
-{
-    _name = name;
-}
-
-void Scene::addSystem(System *system)
+void Scene::addSystem(SharedPtr<System> system)
 {
     _systems.push_back(system);
 }
