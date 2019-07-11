@@ -10,6 +10,7 @@
 #define _RTX_OBJECT_H_
 
 #include "Common.h"
+#include "SharedPtr.h"
 #include <string>
 
 NAMESPACE_RTX_BEGIN
