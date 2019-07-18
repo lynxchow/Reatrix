@@ -11,7 +11,7 @@
 
 #include "Common.h"
 #include "SharedPtr.h"
-#include <string>
+#include "string/String.h"
 
 NAMESPACE_RTX_BEGIN
 
@@ -24,7 +24,7 @@ public:
     void setName(const std::string& name);
     
 private:
-    std::string _name;
+    String _name;
 };
 
 NAMESPACE_RTX_END

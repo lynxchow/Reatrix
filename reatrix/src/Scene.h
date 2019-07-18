@@ -12,7 +12,7 @@
 #include "Object.h"
 #include "SharedPtr.h"
 #include <string>
-#include <vector>
+#include "container/Vector.h"
 
 
 NAMESPACE_RTX_BEGIN
@@ -33,7 +33,7 @@ private:
     void onUpdate();
     
     bool _isLoad;
-    std::vector<SharedPtr<System> > _systems;
+    Vector<SharedPtr<System> > _systems;
 };
     
 NAMESPACE_RTX_END

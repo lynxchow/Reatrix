@@ -8,14 +8,16 @@ get_filename_component(RTX_LIB_DIR
 
 #set(PROJECT_SRC_DIR ${CMAKE_SOURCE_DIR})
 
-include_directories(src/time)
-include_directories(src/mac)
 include_directories(src)
 #file(GLOB_RECURSE DIR_SRCS mac/*.cpp mac/*.h mac/*.c mac/*cc mac/*.m mac/*.mm)
 
 file(GLOB RTX_LIB_SRCS
      ${RTX_LIB_DIR}/*.h
      ${RTX_LIB_DIR}/*.cpp
+     ${RTX_LIB_DIR}/container/*.h
+     ${RTX_LIB_DIR}/container/*.cpp
+     ${RTX_LIB_DIR}/string/*.h
+     ${RTX_LIB_DIR}/string/*.cpp
      ${RTX_LIB_DIR}/time/*.h
      ${RTX_LIB_DIR}/time/*.cpp
      ${RTX_LIB_DIR}/mac/*.h
