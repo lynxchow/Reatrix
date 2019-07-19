@@ -12,7 +12,7 @@
 #include "Object.h"
 #include "Component.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 class Entity : public Object
 {
@@ -36,7 +36,7 @@ private:
     bool _is_enable;
 };
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END
 
 
 #endif /* Entity_h */

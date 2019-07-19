@@ -8,7 +8,7 @@
 
 #include "Component.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 Component::Component()
 {
@@ -20,5 +20,5 @@ Component::~Component()
     
 }
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END
 

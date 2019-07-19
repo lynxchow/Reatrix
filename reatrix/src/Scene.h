@@ -15,7 +15,7 @@
 #include "container/Vector.h"
 
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 class System;
 class Scene : public Object
@@ -36,6 +36,6 @@ private:
     Vector<SharedPtr<System> > _systems;
 };
     
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END
 
 #endif /* Scene_h */

@@ -11,7 +11,7 @@
 
 #include "Object.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 class Component : public Object
 {
@@ -20,6 +20,6 @@ public:
     virtual ~Component();
 };
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END
 
 #endif /* Component_h */

@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "Common.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 class Scene;
 
@@ -36,6 +36,6 @@ private:
     ReatrixImpl *_impl;
 };
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END
 
 #endif /* Reatrix_h */

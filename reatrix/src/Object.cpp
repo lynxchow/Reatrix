@@ -8,7 +8,7 @@
 
 #include "Object.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 Object::Object()
 {
@@ -30,4 +30,4 @@ void Object::setName(const std::string& name)
     _name = name;
 }
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END

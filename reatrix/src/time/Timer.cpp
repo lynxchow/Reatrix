@@ -9,7 +9,7 @@
 #include <time.h>
 #include <sys/time.h>
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 long long Timer::s_time_startup = 0;
 float Timer::s_time_delta = 0;
@@ -66,4 +66,4 @@ void Timer::update()
     Timer::s_frame_count++;
 }
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END

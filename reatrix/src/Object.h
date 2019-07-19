@@ -13,7 +13,7 @@
 #include "SharedPtr.h"
 #include "string/String.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 class Object
 {
@@ -27,6 +27,6 @@ private:
     String _name;
 };
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END
 
 #endif /* Object_hpp */

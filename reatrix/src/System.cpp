@@ -8,7 +8,7 @@
 
 #include "System.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
     
 System::System()
 {
@@ -45,4 +45,4 @@ bool System::isLoad()
     return _isLoad;
 }
     
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END

@@ -10,7 +10,7 @@
 #include "Scene.h"
 #include "time/Timer.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 Scene *s_scene = nullptr;
 
@@ -110,4 +110,4 @@ void Reatrix::update()
     _impl->update();
 }
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END

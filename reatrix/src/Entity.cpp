@@ -8,7 +8,7 @@
 
 #include "Entity.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 SharedPtr<Entity> Entity::create()
 {
@@ -41,4 +41,4 @@ void Entity::removeComponent(const SharedPtr<Component>& component)
     
 }
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END

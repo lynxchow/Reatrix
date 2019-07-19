@@ -9,7 +9,7 @@
 #include "Scene.h"
 #include "System.h"
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 Scene::Scene() : _isLoad(false)
 {
@@ -63,4 +63,4 @@ void Scene::addSystem(SharedPtr<System> system)
     _systems.push_back(system);
 }
     
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END

@@ -12,7 +12,7 @@
 #include "Object.h"
 #include <string>
 
-NAMESPACE_RTX_BEGIN
+NAMESPACE_REATRIX_BEGIN
 
 class System : public Object
 {
@@ -30,6 +30,6 @@ private:
     bool _isLoad;
 };
 
-NAMESPACE_RTX_END
+NAMESPACE_REATRIX_END
 
 #endif /* System_h */
