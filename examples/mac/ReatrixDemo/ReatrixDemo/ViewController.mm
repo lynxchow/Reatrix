@@ -10,6 +10,7 @@
 #import "ReatrixMac.h"
 #include "DemoSystem.h"
 #include "Scene.h"
+#include "Entity.h"
 
 @interface ViewController()
 {
@@ -26,6 +27,7 @@
     _rtx = [[ReatrixMac alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
     SharedPtr<DemoSystem> system = MakeShared<DemoSystem>();
     rtx::Scene *scene = new rtx::Scene();
+    scene->addEntity(rtx::Entity::create());
     scene->addSystem(system);
     [_rtx loadScene:scene];
     self.view = _rtx.view;

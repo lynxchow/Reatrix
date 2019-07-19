@@ -7,6 +7,7 @@
 //
 
 #include "System.h"
+#include "Component.h"
 
 NAMESPACE_REATRIX_BEGIN
     
@@ -37,6 +38,16 @@ void System::onUpdate()
 }
 
 void System::onDestroy()
+{
+    
+}
+
+void System::onComponentAdded(Component* comp)
+{
+    
+}
+
+void System::onComponentRemoved(Component* comp)
 {
     
 }

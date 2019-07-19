@@ -20,10 +20,12 @@ class Object
 public:
     Object();
     virtual ~Object();
-    const std::string& getName() const;
-    void setName(const std::string& name);
+    int64_t getId() const;
+    const String& getName() const;
+    void setName(const String& name);
     
 private:
+    int64_t _id;
     String _name;
 };
 

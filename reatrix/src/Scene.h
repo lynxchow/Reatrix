@@ -13,10 +13,12 @@
 #include "SharedPtr.h"
 #include <string>
 #include "container/Vector.h"
+#include "container/Map.h"
 
 
 NAMESPACE_REATRIX_BEGIN
 
+class Entity;
 class System;
 class Scene : public Object
 {
@@ -27,11 +29,15 @@ public:
     void update();
     void destroy();
     bool isStarted();
-    void addSystem(SharedPtr<System> system);
+    void addEntity(const SharedPtr<Entity>& entity);
+    bool removeEntity(const SharedPtr<Entity>& entity);
+    void addSystem(const SharedPtr<System> system);
+    bool removeSystem(const SharedPtr<System> system);
     
 private:
     bool _is_started;
     Vector<SharedPtr<System> > _systems;
+    Map<int64_t, SharedPtr<Entity> > _entities;
 };
     
 NAMESPACE_REATRIX_END

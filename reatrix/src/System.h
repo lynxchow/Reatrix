@@ -14,6 +14,7 @@
 
 NAMESPACE_REATRIX_BEGIN
 
+class Component;
 class System : public Object
 {
     friend class Scene;
@@ -22,15 +23,15 @@ public:
     virtual ~System();
     bool isStarted();
     
-protected:
-    virtual void onInit();
-    virtual void onUpdate();
-    virtual void onDestroy();
-    
 private:
     void init();
     void update();
     void destroy();
+    virtual void onInit();
+    virtual void onUpdate();
+    virtual void onDestroy();
+    virtual void onComponentAdded(Component* comp);
+    virtual void onComponentRemoved(Component* comp);
     
     bool _is_started;
 };

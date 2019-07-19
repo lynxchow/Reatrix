@@ -16,6 +16,11 @@ SharedPtr<Entity> Entity::create()
     return obj;
 }
 
+Entity::Entity()
+{
+    
+}
+
 Entity::~Entity()
 {
     
@@ -26,7 +31,7 @@ void Entity::destroy(SharedPtr<Entity>& entity)
     entity.reset();
 }
 
-template <class T, typename ...ARGS> SharedPtr<T> Entity::addComponent(ARGS... args)
+template <class T, typename ...Params> SharedPtr<T> Entity::addComponent(Params... args)
 {
     
 }
