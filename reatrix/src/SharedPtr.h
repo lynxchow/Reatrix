@@ -9,6 +9,7 @@
 #ifndef _RTX_SHARED_PTR_H_
 #define _RTX_SHARED_PTR_H_
 
+#define WeakPtr std::weak_ptr
 #define SharedPtr std::shared_ptr
 #define MakeShared std::make_shared
 

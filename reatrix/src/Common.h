@@ -9,10 +9,10 @@
 #ifndef _RTX_COMMON_H_
 #define _RTX_COMMON_H_
 
-#define NAMESPACE_REATRIX_BEGIN \
+#define NAMESPACE_REATRIX_ENGINE_BEGIN \
 namespace rtx               \
 {
-#define NAMESPACE_REATRIX_END }
-#define NAMESPACE_RTX_USING using namespace rtx;
+#define NAMESPACE_REATRIX_ENGINE_END }
+#define NAMESPACE_REATRIX_ENGINE_USING using namespace rtx;
 
 #endif /* Common_h */

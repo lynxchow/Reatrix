@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "Common.h"
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 class Scene;
 
@@ -33,9 +33,9 @@ public:
     void update();
     
 private:
-    ReatrixImpl *_impl;
+    ReatrixImpl *m_impl;
 };
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END
 
 #endif /* Reatrix_h */

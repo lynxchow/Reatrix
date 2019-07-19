@@ -11,6 +11,7 @@
 #include "DemoSystem.h"
 #include "Scene.h"
 #include "Entity.h"
+#include "Transform.h"
 
 @interface ViewController()
 {
@@ -20,14 +21,18 @@
 
 @implementation ViewController
 
+NAMESPACE_REATRIX_ENGINE_USING
+
 - (void)loadView
 {
     NSWindow *window = [[NSApplication sharedApplication] keyWindow];
     CGSize size = [window contentRectForFrameRect:window.contentLayoutRect].size;
     _rtx = [[ReatrixMac alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
     SharedPtr<DemoSystem> system = MakeShared<DemoSystem>();
-    rtx::Scene *scene = new rtx::Scene();
-    scene->addEntity(rtx::Entity::create());
+    Scene *scene = new Scene();
+    SharedPtr<Entity> entity = Entity::create();
+    entity->addComponent<Transform>();
+    scene->addEntity(entity);
     scene->addSystem(system);
     [_rtx loadScene:scene];
     self.view = _rtx.view;

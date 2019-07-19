@@ -9,7 +9,7 @@
 #include <time.h>
 #include <sys/time.h>
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 long long Timer::s_time_startup = 0;
 float Timer::s_time_delta = 0;
@@ -66,4 +66,4 @@ void Timer::update()
     Timer::s_frame_count++;
 }
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END

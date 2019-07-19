@@ -8,7 +8,7 @@
 
 #include "Component.h"
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 Component::Component()
 {
@@ -20,5 +20,10 @@ Component::~Component()
     
 }
 
-NAMESPACE_REATRIX_END
+SharedPtr<Entity> Component::getEntity()
+{
+    return m_entity.lock();
+}
+
+NAMESPACE_REATRIX_ENGINE_END
 

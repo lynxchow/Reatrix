@@ -10,7 +10,7 @@
 #include "Scene.h"
 #include "time/Timer.h"
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 Scene *s_scene = nullptr;
 
@@ -77,37 +77,37 @@ Reatrix *Reatrix::instance()
 
 Reatrix::Reatrix()
 {
-    _impl = new ReatrixImpl();
+    m_impl = new ReatrixImpl();
 }
 
 Reatrix::~Reatrix()
 {
-    delete _impl;
+    delete m_impl;
 }
 
 bool Reatrix::loadScene(Scene *app)
 {
-    return _impl->loadScene(app);
+    return m_impl->loadScene(app);
 }
 
 Scene *Reatrix::currentScene()
 {
-    return _impl->currentScene();
+    return m_impl->currentScene();
 }
 
 void Reatrix::init()
 {
-    _impl->init();
+    m_impl->init();
 }
 
 void Reatrix::destroy()
 {
-    _impl->destroy();
+    m_impl->destroy();
 }
 
 void Reatrix::update()
 {
-    _impl->update();
+    m_impl->update();
 }
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END

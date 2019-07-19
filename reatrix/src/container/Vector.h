@@ -12,11 +12,11 @@
 #include "Common.h"
 #include <vector>
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 template <typename T>
 using Vector = std::vector<T>;
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END
 
 #endif /* Vector_h */

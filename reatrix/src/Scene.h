@@ -16,7 +16,7 @@
 #include "container/Map.h"
 
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 class Entity;
 class System;
@@ -35,11 +35,11 @@ public:
     bool removeSystem(const SharedPtr<System> system);
     
 private:
-    bool _is_started;
-    Vector<SharedPtr<System> > _systems;
-    Map<int64_t, SharedPtr<Entity> > _entities;
+    bool m_is_started;
+    Vector<SharedPtr<System> > m_systems;
+    Map<int64_t, SharedPtr<Entity> > m_entities;
 };
     
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END
 
 #endif /* Scene_h */

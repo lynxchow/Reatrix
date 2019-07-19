@@ -10,7 +10,7 @@
 
 #include "Common.h"
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 class Timer
 {
@@ -33,6 +33,6 @@ private:
     static int s_fps;
 };
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END
 
 #endif /* Timer_h */

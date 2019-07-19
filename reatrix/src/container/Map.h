@@ -12,11 +12,11 @@
 #include "Common.h"
 #include <unordered_map>
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 template <typename K, typename V>
 using Map = std::unordered_map<K, V>;
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END
 
 #endif /* Map_h */

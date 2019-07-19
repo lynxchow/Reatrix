@@ -12,10 +12,10 @@
 #include "Common.h"
 #include <string>
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 using String = std::string;
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END
 
 #endif /* String_h */

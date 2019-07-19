@@ -8,7 +8,7 @@
 
 #include "Entity.h"
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 SharedPtr<Entity> Entity::create()
 {
@@ -31,19 +31,9 @@ void Entity::destroy(SharedPtr<Entity>& entity)
     entity.reset();
 }
 
-template <class T, typename ...Params> SharedPtr<T> Entity::addComponent(Params... args)
-{
-    
-}
-
-template <class T> SharedPtr<T> Entity::getComponent() const
-{
-    
-}
-
 void Entity::removeComponent(const SharedPtr<Component>& component)
 {
     
 }
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END

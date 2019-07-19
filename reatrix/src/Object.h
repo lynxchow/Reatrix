@@ -13,7 +13,7 @@
 #include "SharedPtr.h"
 #include "string/String.h"
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 class Object
 {
@@ -25,10 +25,10 @@ public:
     void setName(const String& name);
     
 private:
-    int64_t _id;
-    String _name;
+    int64_t m_id;
+    String m_name;
 };
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END
 
 #endif /* Object_hpp */

@@ -9,7 +9,7 @@
 #include "System.h"
 #include "Component.h"
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
     
 System::System()
 {
@@ -23,7 +23,7 @@ System::~System()
 
 void System::init()
 {
-    _is_started = true;
+    m_is_started = true;
     this->onInit();
 }
 
@@ -59,13 +59,13 @@ void System::update()
 
 void System::destroy()
 {
-    _is_started = false;
+    m_is_started = false;
     this->onDestroy();
 }
 
 bool System::isStarted()
 {
-    return _is_started;
+    return m_is_started;
 }
     
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END

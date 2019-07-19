@@ -6,8 +6,8 @@
 //  Copyright © 2019 Vin-Ex. All rights reserved.
 //
 
-#ifndef _DEMO_SYSTEM_H_
-#define _DEMO_SYSTEM_H_
+#ifndef m_DEMO_SYSTEM_H_
+#define m_DEMO_SYSTEM_H_
 
 #include "System.h"
 

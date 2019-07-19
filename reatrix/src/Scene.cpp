@@ -10,9 +10,9 @@
 #include "Entity.h"
 #include "System.h"
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
-Scene::Scene() : _is_started(false)
+Scene::Scene() : m_is_started(false)
 {
     
 }
@@ -24,8 +24,8 @@ Scene::~Scene()
 
 void Scene::init()
 {
-    _is_started = true;
-    for (auto& system : _systems)
+    m_is_started = true;
+    for (auto& system : m_systems)
     {
         system->init();
     }
@@ -33,17 +33,17 @@ void Scene::init()
 
 void Scene::destroy()
 {
-    _is_started = false;
-    for (auto& system : _systems)
+    m_is_started = false;
+    for (auto& system : m_systems)
     {
         system->destroy();
     }
-    _systems.clear();
+    m_systems.clear();
 }
 
 void Scene::update()
 {
-    for (auto& system : _systems)
+    for (auto& system : m_systems)
     {
         system->update();
     }
@@ -51,21 +51,21 @@ void Scene::update()
 
 bool Scene::isStarted()
 {
-    return _is_started;
+    return m_is_started;
 }
 
 void Scene::addSystem(const SharedPtr<System> system)
 {
-    _systems.push_back(system);
+    m_systems.push_back(system);
 }
 
 bool Scene::removeSystem(const SharedPtr<System> system)
 {
-    for (auto it = _systems.begin(); it != _systems.end(); it++)
+    for (auto it = m_systems.begin(); it != m_systems.end(); it++)
     {
         if (*it == system)
         {
-            _systems.erase(it);
+            m_systems.erase(it);
             return true;
         }
     }
@@ -75,14 +75,14 @@ bool Scene::removeSystem(const SharedPtr<System> system)
 
 void Scene::addEntity(const std::shared_ptr<Entity>& entity)
 {
-    _entities[entity->getId()] = entity;
+    m_entities[entity->getId()] = entity;
 }
 
 bool Scene::removeEntity(const SharedPtr<Entity>& entity)
 {
-    if (_entities.find(entity->getId()) != _entities.end())
+    if (m_entities.find(entity->getId()) != m_entities.end())
     {
-        _entities.erase(entity->getId());
+        m_entities.erase(entity->getId());
         
         return true;
     }
@@ -90,4 +90,4 @@ bool Scene::removeEntity(const SharedPtr<Entity>& entity)
     return false;
 }
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END

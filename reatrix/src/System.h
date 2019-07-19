@@ -12,7 +12,7 @@
 #include "Object.h"
 #include <string>
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 class Component;
 class System : public Object
@@ -33,9 +33,9 @@ private:
     virtual void onComponentAdded(Component* comp);
     virtual void onComponentRemoved(Component* comp);
     
-    bool _is_started;
+    bool m_is_started;
 };
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END
 
 #endif /* System_h */

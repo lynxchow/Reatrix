@@ -8,12 +8,12 @@
 
 #include "Object.h"
 
-NAMESPACE_REATRIX_BEGIN
+NAMESPACE_REATRIX_ENGINE_BEGIN
 
 Object::Object()
 {
     static int s_id = 0;
-    _id = ++s_id;
+    m_id = ++s_id;
 }
 
 Object::~Object()
@@ -23,17 +23,17 @@ Object::~Object()
 
 const String& Object::getName() const
 {
-    return _name;
+    return m_name;
 }
 
 void Object::setName(const String& name)
 {
-    _name = name;
+    m_name = name;
 }
 
 int64_t Object::getId() const
 {
-    return _id;
+    return m_id;
 }
 
-NAMESPACE_REATRIX_END
+NAMESPACE_REATRIX_ENGINE_END
