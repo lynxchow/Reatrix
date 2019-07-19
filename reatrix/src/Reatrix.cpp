@@ -54,7 +54,7 @@ public:
         Timer::update();
         if (s_scene)
         {
-            if (!s_scene->isLoad())
+            if (!s_scene->isStarted())
             {
                 s_scene->init();
             }

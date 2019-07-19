@@ -11,7 +11,7 @@
 
 NAMESPACE_REATRIX_BEGIN
 
-Scene::Scene() : _isLoad(false)
+Scene::Scene() : _is_started(false)
 {
     
 }
@@ -21,14 +21,9 @@ Scene::~Scene()
     
 }
 
-void Scene::onUpdate()
-{
-    
-}
-
 void Scene::init()
 {
-    _isLoad = true;
+    _is_started = true;
     for (auto& system : _systems)
     {
         system->init();
@@ -37,7 +32,7 @@ void Scene::init()
 
 void Scene::destroy()
 {
-    _isLoad = false;
+    _is_started = false;
     for (auto& system : _systems)
     {
         system->destroy();
@@ -53,9 +48,9 @@ void Scene::update()
     }
 }
 
-bool Scene::isLoad()
+bool Scene::isStarted()
 {
-    return _isLoad;
+    return _is_started;
 }
 
 void Scene::addSystem(SharedPtr<System> system)

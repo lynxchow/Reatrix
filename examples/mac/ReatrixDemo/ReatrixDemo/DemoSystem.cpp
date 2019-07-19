@@ -38,7 +38,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
 "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
 "}\n\0";
 
-void DemoSystem::init()
+void DemoSystem::onInit()
 {
     int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -111,7 +111,7 @@ void DemoSystem::init()
     
 }
 
-void DemoSystem::destroy()
+void DemoSystem::onDestroy()
 {
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);

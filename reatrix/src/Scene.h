@@ -23,16 +23,14 @@ class Scene : public Object
 public:
     Scene();
     virtual ~Scene();
-    virtual void init();
-    virtual void update();
-    virtual void destroy();
-    bool isLoad();
+    void init();
+    void update();
+    void destroy();
+    bool isStarted();
     void addSystem(SharedPtr<System> system);
     
 private:
-    void onUpdate();
-    
-    bool _isLoad;
+    bool _is_started;
     Vector<SharedPtr<System> > _systems;
 };
     

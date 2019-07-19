@@ -17,11 +17,12 @@ public:
     DemoSystem();
     virtual ~DemoSystem();
     
-    void init() override;
-    void destroy() override;
+protected:
+    virtual void onInit();
+    virtual void onUpdate();
+    virtual void onDestroy();
     
 private:
-    void onUpdate() override;
     
     unsigned int VBO, VAO, EBO;
     int shaderProgram;

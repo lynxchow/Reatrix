@@ -22,10 +22,21 @@ System::~System()
 
 void System::init()
 {
-    _isLoad = true;
+    _is_started = true;
+    this->onInit();
+}
+
+void System::onInit()
+{
+    
 }
 
 void System::onUpdate()
+{
+    
+}
+
+void System::onDestroy()
 {
     
 }
@@ -37,12 +48,13 @@ void System::update()
 
 void System::destroy()
 {
-    _isLoad = false;
+    _is_started = false;
+    this->onDestroy();
 }
 
-bool System::isLoad()
+bool System::isStarted()
 {
-    return _isLoad;
+    return _is_started;
 }
     
 NAMESPACE_REATRIX_END

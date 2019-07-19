@@ -16,18 +16,23 @@ NAMESPACE_REATRIX_BEGIN
 
 class System : public Object
 {
+    friend class Scene;
 public:
     System();
     virtual ~System();
-    virtual void init();
-    void update();
-    virtual void destroy();
-    bool isLoad();
+    bool isStarted();
+    
+protected:
+    virtual void onInit();
+    virtual void onUpdate();
+    virtual void onDestroy();
     
 private:
-    virtual void onUpdate();
+    void init();
+    void update();
+    void destroy();
     
-    bool _isLoad;
+    bool _is_started;
 };
 
 NAMESPACE_REATRIX_END
