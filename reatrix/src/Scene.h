@@ -23,7 +23,7 @@ class System;
 class Scene : public Object
 {
 public:
-    Scene();
+    static SharedPtr<Scene> create(const String& name);
     virtual ~Scene();
     void init();
     void update();
@@ -35,6 +35,7 @@ public:
     bool removeSystem(const SharedPtr<System> system);
     
 private:
+    Scene();
     bool m_is_started;
     Vector<SharedPtr<System> > m_systems;
     Map<int64_t, SharedPtr<Entity> > m_entities;

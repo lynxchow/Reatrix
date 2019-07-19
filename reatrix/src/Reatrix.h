@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "Common.h"
+#include "SharedPtr.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
@@ -26,8 +27,8 @@ private:
 public:
     static Reatrix *instance();
     virtual ~Reatrix();
-    bool loadScene(Scene *app);
-    Scene *currentScene();
+    bool loadScene(SharedPtr<Scene> scene);
+    SharedPtr<Scene> currentScene();
     void init();
     void destroy();
     void update();

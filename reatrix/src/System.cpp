@@ -37,6 +37,11 @@ void System::onUpdate()
     
 }
 
+void System::onLateUpdate()
+{
+    
+}
+
 void System::onDestroy()
 {
     

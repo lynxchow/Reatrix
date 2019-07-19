@@ -12,8 +12,6 @@
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
-Scene *s_scene = nullptr;
-
 class ReatrixImpl
 {
 public:
@@ -22,45 +20,48 @@ public:
         
     }
     
-    bool loadScene(Scene *app)
+    bool loadScene(SharedPtr<Scene> scene)
     {
-        s_scene = app;
+        m_scene = scene;
         return true;
     }
     
-    Scene *currentScene()
+    SharedPtr<Scene> currentScene()
     {
-        return s_scene;
+        return m_scene;
     }
     
     void init()
     {
-        if (s_scene)
+        if (m_scene)
         {
-            s_scene->init();
+            m_scene->init();
         }
     }
     
     void destroy()
     {
-        if (s_scene)
+        if (m_scene)
         {
-            s_scene->destroy();
+            m_scene->destroy();
         }
     }
     
     void update()
     {
         Timer::update();
-        if (s_scene)
+        if (m_scene)
         {
-            if (!s_scene->isStarted())
+            if (!m_scene->isStarted())
             {
-                s_scene->init();
+                m_scene->init();
             }
-            s_scene->update();
+            m_scene->update();
         }
     }
+    
+private:
+    SharedPtr<Scene> m_scene;
     
 };
 
@@ -85,12 +86,12 @@ Reatrix::~Reatrix()
     delete m_impl;
 }
 
-bool Reatrix::loadScene(Scene *app)
+bool Reatrix::loadScene(SharedPtr<Scene> app)
 {
     return m_impl->loadScene(app);
 }
 
-Scene *Reatrix::currentScene()
+SharedPtr<Scene> Reatrix::currentScene()
 {
     return m_impl->currentScene();
 }

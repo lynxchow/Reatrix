@@ -29,6 +29,7 @@ private:
     void destroy();
     virtual void onInit();
     virtual void onUpdate();
+    virtual void onLateUpdate();
     virtual void onDestroy();
     virtual void onComponentAdded(Component* comp);
     virtual void onComponentRemoved(Component* comp);

@@ -10,10 +10,11 @@
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
-SharedPtr<Entity> Entity::create()
+SharedPtr<Entity> Entity::create(const String& name)
 {
-    SharedPtr<Entity> obj = SharedPtr<Entity>(new Entity());
-    return obj;
+    SharedPtr<Entity> entity = SharedPtr<Entity>(new Entity());
+    entity->setName(name);
+    return entity;
 }
 
 Entity::Entity()

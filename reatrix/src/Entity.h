@@ -18,7 +18,7 @@ NAMESPACE_REATRIX_ENGINE_BEGIN
 class Entity : public Object
 {
 public:
-    static SharedPtr<Entity> create();
+    static SharedPtr<Entity> create(const String& name);
     virtual ~Entity();
     
     static void destroy(SharedPtr<Entity>& entity);

@@ -29,8 +29,8 @@ NAMESPACE_REATRIX_ENGINE_USING
     CGSize size = [window contentRectForFrameRect:window.contentLayoutRect].size;
     _rtx = [[ReatrixMac alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
     SharedPtr<DemoSystem> system = MakeShared<DemoSystem>();
-    Scene *scene = new Scene();
-    SharedPtr<Entity> entity = Entity::create();
+    SharedPtr<Scene> scene = Scene::create("scene");
+    SharedPtr<Entity> entity = Entity::create("test");
     entity->addComponent<Transform>();
     scene->addEntity(entity);
     scene->addSystem(system);

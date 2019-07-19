@@ -133,7 +133,7 @@ static CVReturn outputFrame(CVDisplayLinkRef displayLink, const CVTimeStamp* now
     return _view;
 }
 
-- (BOOL)loadScene:(rtx::Scene *)scene
+- (BOOL)loadScene:(SharedPtr<rtx::Scene>)scene
 {
     rtx::Reatrix::instance()->loadScene(scene);
     return YES;

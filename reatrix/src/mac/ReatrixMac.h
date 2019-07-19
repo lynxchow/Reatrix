@@ -8,18 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
+#include "Scene.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-namespace rtx
-{
-    class Scene;
-};
 
 @interface ReatrixMac : NSObject
 - (instancetype)initWithFrame:(NSRect)frameRect;
 - (NSView *)view;
-- (BOOL)loadScene:(rtx::Scene *)scene;
+- (BOOL)loadScene:(SharedPtr<rtx::Scene>)scene;
 - (void)destroy;
 @end
 

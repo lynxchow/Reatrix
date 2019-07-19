@@ -12,6 +12,13 @@
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
+SharedPtr<Scene> Scene::create(const String& name)
+{
+    SharedPtr<Scene> scene = SharedPtr<Scene>(new Scene);
+    scene->setName(name);
+    return scene;
+}
+
 Scene::Scene() : m_is_started(false)
 {
     
