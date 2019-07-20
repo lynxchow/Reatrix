@@ -32,6 +32,7 @@ NAMESPACE_REATRIX_ENGINE_USING
     SharedPtr<Scene> scene = Scene::create("scene");
     SharedPtr<Entity> entity = Entity::create("test");
     entity->addComponent<Transform>();
+    auto transform = entity->getComponent<Transform>();
     scene->addEntity(entity);
     scene->addSystem(system);
     [_rtx loadScene:scene];

@@ -82,17 +82,17 @@ bool Scene::removeSystem(const SharedPtr<System> system)
 
 void Scene::addEntity(const std::shared_ptr<Entity>& entity)
 {
-    m_entities[entity->getId()] = entity;
+//    m_entities[entity->getId()] = entity;
 }
 
 bool Scene::removeEntity(const SharedPtr<Entity>& entity)
 {
-    if (m_entities.find(entity->getId()) != m_entities.end())
-    {
-        m_entities.erase(entity->getId());
-        
-        return true;
-    }
+//    if (m_entities.find(entity->getId()) != m_entities.end())
+//    {
+//        m_entities.erase(entity->getId());
+//        
+//        return true;
+//    }
     
     return false;
 }
