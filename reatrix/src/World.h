@@ -13,7 +13,7 @@
 #include "SharedPtr.h"
 #include <string>
 #include "container/Vector.h"
-#include "container/Map.h"
+#include "container/Set.h"
 
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
@@ -38,7 +38,8 @@ private:
     World();
     bool m_is_started;
     Vector<SharedPtr<System> > m_systems;
-    Map<int64_t, SharedPtr<Entity> > m_entities;
+    Set<SharedPtr<Entity> > m_entities;
+    
 };
     
 NAMESPACE_REATRIX_ENGINE_END

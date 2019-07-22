@@ -20,12 +20,12 @@ class Object
 public:
     Object();
     virtual ~Object();
-    int64_t getId() const;
+    unsigned int getUUID() const;
     const String& getName() const;
     void setName(const String& name);
     
 private:
-    int64_t m_id;
+    unsigned int m_uuid;
     String m_name;
 };
 

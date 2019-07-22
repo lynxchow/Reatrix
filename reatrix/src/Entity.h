@@ -34,6 +34,8 @@ public:
     bool isEnable() const { return m_is_enable; }
     void setEnable(bool enable) { m_is_enable = enable; }
     
+    bool operator ==(const SharedPtr<Entity>& right) const;
+    bool operator ==(const Entity right) const;
 private:
     Entity();
     WeakPtr<Entity> m_weak_this;
@@ -70,6 +72,20 @@ SharedPtr<T> Entity::getComponent() const
 }
 
 NAMESPACE_REATRIX_ENGINE_END
+
+namespace std
+{
+    template <>
+    struct hash<WeakPtr<rtx::Entity> >
+    {
+        std::size_t operator()(const WeakPtr<rtx::Entity>& ptr) const
+        {
+            return hash<unsigned int>()(ptr.lock()->getUUID());
+        }
+    };
+    
+    bool operator ==(WeakPtr<rtx::Entity> left, WeakPtr<rtx::Entity> right);
+}
 
 
 #endif /* Entity_h */

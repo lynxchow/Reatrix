@@ -38,4 +38,22 @@ void Entity::removeComponent(const SharedPtr<Component>& component)
     
 }
 
+bool Entity::operator ==(const SharedPtr<Entity>& right) const
+{
+    return this->getUUID() == right->getUUID();
+}
+
+bool Entity::operator ==(const Entity right) const
+{
+    return this->getUUID() == right.getUUID();
+}
+
 NAMESPACE_REATRIX_ENGINE_END
+
+namespace std
+{
+    bool operator ==(WeakPtr<rtx::Entity> left, WeakPtr<rtx::Entity> right)
+    {
+        return left.lock().get() == right.lock().get();
+    }
+}

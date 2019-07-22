@@ -86,14 +86,14 @@ bool World::removeSystem(const SharedPtr<System> system)
 
 void World::addEntity(const std::shared_ptr<Entity>& entity)
 {
-    m_entities[entity->getId()] = entity;
+    m_entities.insert(entity);
 }
 
 bool World::removeEntity(const SharedPtr<Entity>& entity)
 {
-    if (m_entities.find(entity->getId()) != m_entities.end())
+    if (m_entities.find(entity) != m_entities.end())
     {
-        m_entities.erase(entity->getId());
+        m_entities.erase(entity);
         
         return true;
     }

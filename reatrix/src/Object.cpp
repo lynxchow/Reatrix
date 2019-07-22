@@ -12,8 +12,8 @@ NAMESPACE_REATRIX_ENGINE_BEGIN
 
 Object::Object()
 {
-    static int s_id = 0;
-    m_id = ++s_id;
+    static unsigned int s_uuid = 0;
+    m_uuid = ++s_uuid;
 }
 
 Object::~Object()
@@ -31,9 +31,9 @@ void Object::setName(const String& name)
     m_name = name;
 }
 
-int64_t Object::getId() const
+unsigned int Object::getUUID() const
 {
-    return m_id;
+    return m_uuid;
 }
 
 NAMESPACE_REATRIX_ENGINE_END
