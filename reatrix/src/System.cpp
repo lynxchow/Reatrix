@@ -62,6 +62,11 @@ void System::update()
     this->onUpdate();
 }
 
+void System::lateUpdate()
+{
+    this->onLateUpdate();
+}
+
 void System::destroy()
 {
     m_is_started = false;

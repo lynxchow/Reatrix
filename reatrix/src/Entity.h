@@ -48,7 +48,7 @@ SharedPtr<T> Entity::addComponent(Params... args)
     
     m_components.push_back(component);
     // 这里不能赋值Entity类型的智能指针给Component
-    // 要么从Scene里面获取Entity的SharedPtr，但是这样代码就依赖当前的Entity
+    // 要么从World里面获取Entity的SharedPtr，但是这样代码就依赖当前的Entity
     // 要么通过继承std::enable_shared_from_this
     component->m_entity = shared_from_this();
     

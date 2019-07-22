@@ -17,7 +17,7 @@ NAMESPACE_REATRIX_ENGINE_BEGIN
 class Component;
 class System : public Object
 {
-    friend class Scene;
+    friend class World;
 public:
     System();
     virtual ~System();
@@ -26,6 +26,7 @@ public:
 private:
     void init();
     void update();
+    void lateUpdate();
     void destroy();
     virtual void onInit();
     virtual void onUpdate();

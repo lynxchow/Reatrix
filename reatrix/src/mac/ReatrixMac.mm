@@ -10,7 +10,7 @@
 #import <OpenGL/gl3.h>
 #include <iostream>
 #include "Reatrix.h"
-#include "Scene.h"
+#include "World.h"
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -133,9 +133,9 @@ static CVReturn outputFrame(CVDisplayLinkRef displayLink, const CVTimeStamp* now
     return _view;
 }
 
-- (BOOL)loadScene:(SharedPtr<rtx::Scene>)scene
+- (BOOL)loadWorld:(SharedPtr<rtx::World>)world
 {
-    rtx::Reatrix::instance()->loadScene(scene);
+    rtx::Reatrix::instance()->loadWorld(world);
     return YES;
 }
 

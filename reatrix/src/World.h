@@ -1,5 +1,5 @@
 //
-//  Scene.h
+//  World.h
 //  Reatrix
 //
 //  Created by Lyn on 2019/5/30.
@@ -20,11 +20,11 @@ NAMESPACE_REATRIX_ENGINE_BEGIN
 
 class Entity;
 class System;
-class Scene : public Object
+class World : public Object
 {
 public:
-    static SharedPtr<Scene> create(const String& name);
-    virtual ~Scene();
+    static SharedPtr<World> create(const String& name);
+    virtual ~World();
     void init();
     void update();
     void destroy();
@@ -35,7 +35,7 @@ public:
     bool removeSystem(const SharedPtr<System> system);
     
 private:
-    Scene();
+    World();
     bool m_is_started;
     Vector<SharedPtr<System> > m_systems;
     Map<int64_t, SharedPtr<Entity> > m_entities;
@@ -43,4 +43,4 @@ private:
     
 NAMESPACE_REATRIX_ENGINE_END
 
-#endif /* Scene_h */
+#endif /* World_h */

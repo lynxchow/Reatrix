@@ -15,7 +15,7 @@
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
-class Scene;
+class World;
 
 class ReatrixImpl;
 
@@ -27,8 +27,8 @@ private:
 public:
     static Reatrix *instance();
     virtual ~Reatrix();
-    bool loadScene(SharedPtr<Scene> scene);
-    SharedPtr<Scene> currentScene();
+    bool loadWorld(SharedPtr<World> world);
+    SharedPtr<World> currentWorld();
     void init();
     void destroy();
     void update();

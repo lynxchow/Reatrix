@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
-#include "Scene.h"
+#include "World.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReatrixMac : NSObject
 - (instancetype)initWithFrame:(NSRect)frameRect;
 - (NSView *)view;
-- (BOOL)loadScene:(SharedPtr<rtx::Scene>)scene;
+- (BOOL)loadWorld:(SharedPtr<rtx::World>)world;
 - (void)destroy;
 @end
 

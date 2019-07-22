@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "ReatrixMac.h"
 #include "DemoSystem.h"
-#include "Scene.h"
+#include "World.h"
 #include "Entity.h"
 #include "Transform.h"
 
@@ -29,13 +29,13 @@ NAMESPACE_REATRIX_ENGINE_USING
     CGSize size = [window contentRectForFrameRect:window.contentLayoutRect].size;
     _rtx = [[ReatrixMac alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
     SharedPtr<DemoSystem> system = MakeShared<DemoSystem>();
-    SharedPtr<Scene> scene = Scene::create("scene");
+    SharedPtr<World> world = World::create("world");
     SharedPtr<Entity> entity = Entity::create("test");
     entity->addComponent<Transform>();
     auto transform = entity->getComponent<Transform>();
-    scene->addEntity(entity);
-    scene->addSystem(system);
-    [_rtx loadScene:scene];
+    world->addEntity(entity);
+    world->addSystem(system);
+    [_rtx loadWorld:world];
     self.view = _rtx.view;
 }
 

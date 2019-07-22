@@ -7,7 +7,7 @@
 //
 
 #include "Reatrix.h"
-#include "Scene.h"
+#include "World.h"
 #include "time/Timer.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
@@ -20,48 +20,48 @@ public:
         
     }
     
-    bool loadScene(SharedPtr<Scene> scene)
+    bool loadWorld(SharedPtr<World> world)
     {
-        m_scene = scene;
+        m_world = world;
         return true;
     }
     
-    SharedPtr<Scene> currentScene()
+    SharedPtr<World> currentWorld()
     {
-        return m_scene;
+        return m_world;
     }
     
     void init()
     {
-        if (m_scene)
+        if (m_world)
         {
-            m_scene->init();
+            m_world->init();
         }
     }
     
     void destroy()
     {
-        if (m_scene)
+        if (m_world)
         {
-            m_scene->destroy();
+            m_world->destroy();
         }
     }
     
     void update()
     {
         Timer::update();
-        if (m_scene)
+        if (m_world)
         {
-            if (!m_scene->isStarted())
+            if (!m_world->isStarted())
             {
-                m_scene->init();
+                m_world->init();
             }
-            m_scene->update();
+            m_world->update();
         }
     }
     
 private:
-    SharedPtr<Scene> m_scene;
+    SharedPtr<World> m_world;
     
 };
 
@@ -86,14 +86,14 @@ Reatrix::~Reatrix()
     delete m_impl;
 }
 
-bool Reatrix::loadScene(SharedPtr<Scene> app)
+bool Reatrix::loadWorld(SharedPtr<World> app)
 {
-    return m_impl->loadScene(app);
+    return m_impl->loadWorld(app);
 }
 
-SharedPtr<Scene> Reatrix::currentScene()
+SharedPtr<World> Reatrix::currentWorld()
 {
-    return m_impl->currentScene();
+    return m_impl->currentWorld();
 }
 
 void Reatrix::init()
