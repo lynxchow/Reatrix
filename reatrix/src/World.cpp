@@ -101,4 +101,14 @@ bool World::removeEntity(const SharedPtr<Entity>& entity)
     return false;
 }
 
+Vector<SharedPtr<Entity> > World::getEntities()
+{
+    if (m_entities_cache.empty())
+    {
+        m_entities_cache = Vector<SharedPtr<Entity> >(m_entities.begin(), m_entities.end());
+    }
+    
+    return m_entities_cache;
+}
+
 NAMESPACE_REATRIX_ENGINE_END

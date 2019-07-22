@@ -33,12 +33,14 @@ public:
     bool removeEntity(const SharedPtr<Entity>& entity);
     void addSystem(const SharedPtr<System> system);
     bool removeSystem(const SharedPtr<System> system);
+    Vector<SharedPtr<Entity> > getEntities();
     
 private:
     World();
     bool m_is_started;
     Vector<SharedPtr<System> > m_systems;
     Set<SharedPtr<Entity> > m_entities;
+    Vector<SharedPtr<Entity> > m_entities_cache;
     
 };
     
