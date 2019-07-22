@@ -9,7 +9,7 @@
 #ifndef _RTX_TRANSFORM_H_
 #define _RTX_TRANSFORM_H_
 
-#include "Component.h"
+#include "component/Component.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 

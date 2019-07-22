@@ -10,12 +10,12 @@
 #define _RTX_ENTITY_H_
 
 #include "Object.h"
-#include "Component.h"
+#include "component/Component.h"
 #include "container/Vector.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
-class Entity : public Object, public SharedThis<Entity>
+class Entity : public Object
 {
 public:
     static SharedPtr<Entity> create(const String& name);
@@ -36,6 +36,7 @@ public:
     
 private:
     Entity();
+    WeakPtr<Entity> m_weak_this;
     
     bool m_is_enable;
     Vector<SharedPtr<Component> > m_components;
@@ -47,10 +48,7 @@ SharedPtr<T> Entity::addComponent(Params... args)
     SharedPtr<T> component = MakeShared<T>(args...);
     
     m_components.push_back(component);
-    // 这里不能赋值Entity类型的智能指针给Component
-    // 要么从World里面获取Entity的SharedPtr，但是这样代码就依赖当前的Entity
-    // 要么通过继承std::enable_shared_from_this
-    component->m_entity = shared_from_this();
+    component->m_entity = m_weak_this;
     
     return component;
 }

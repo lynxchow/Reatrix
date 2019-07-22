@@ -6,7 +6,7 @@
 //  Copyright © 2019 Vin-Ex. All rights reserved.
 //
 
-#include "Component.h"
+#include "component/Component.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 

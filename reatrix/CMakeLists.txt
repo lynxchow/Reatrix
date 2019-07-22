@@ -14,6 +14,8 @@ include_directories(src)
 file(GLOB RTX_LIB_SRCS
      ${RTX_LIB_DIR}/*.h
      ${RTX_LIB_DIR}/*.cpp
+     ${RTX_LIB_DIR}/component/*.h
+     ${RTX_LIB_DIR}/component/*.cpp
      ${RTX_LIB_DIR}/container/*.h
      ${RTX_LIB_DIR}/container/*.cpp
      ${RTX_LIB_DIR}/string/*.h

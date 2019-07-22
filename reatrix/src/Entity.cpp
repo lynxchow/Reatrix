@@ -13,6 +13,7 @@ NAMESPACE_REATRIX_ENGINE_BEGIN
 SharedPtr<Entity> Entity::create(const String& name)
 {
     SharedPtr<Entity> entity = SharedPtr<Entity>(new Entity);
+    entity->m_weak_this = entity;
     entity->setName(name);
     return entity;
 }
