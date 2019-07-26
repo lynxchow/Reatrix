@@ -27,6 +27,9 @@ public:
     T *addComponent(Params... args);
     
     template <class T>
+    bool hasComponent() const;
+
+    template <class T>
     T *getComponent();
     
     template <class T>
@@ -57,13 +60,17 @@ T *Entity::addComponent(Params... args)
 }
 
 template <class T>
+bool Entity::hasComponent() const
+{
+    return (m_components.find(ComponentTypeId::get<T>()) != m_components.end());
+}
+
+template <class T>
 T *Entity::getComponent()
 {
-    ComponentId id = ComponentTypeId::get<T>();
-    auto it = m_components.find(id);
-    if (it != m_components.end())
+    if (hasComponent<T>())
     {
-        return static_cast<T *>(m_components[id]);
+        return static_cast<T *>(m_components[ComponentTypeId::get<T>()]);
     }
     
     return nullptr;
