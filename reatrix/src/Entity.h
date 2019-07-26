@@ -11,7 +11,7 @@
 
 #include "Object.h"
 #include "component/Component.h"
-#include "container/Vector.h"
+#include "container/Map.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
@@ -24,12 +24,13 @@ public:
     static void destroy(SharedPtr<Entity>& entity);
     
     template <class T, typename ...Params>
-    SharedPtr<T> addComponent(Params... args);
+    T *addComponent(Params... args);
     
     template <class T>
-    SharedPtr<T> getComponent() const;
+    T *getComponent();
     
-    void removeComponent(const SharedPtr<Component>& component);
+    template <class T>
+    void removeComponent();
     
     bool isEnable() const { return m_is_enable; }
     void setEnable(bool enable) { m_is_enable = enable; }
@@ -41,34 +42,41 @@ private:
     WeakPtr<Entity> m_weak_this;
     
     bool m_is_enable;
-    Vector<SharedPtr<Component> > m_components;
+    Map<ComponentId, Component *> m_components;
 };
 
 template <class T, typename ...Params>
-SharedPtr<T> Entity::addComponent(Params... args)
+T *Entity::addComponent(Params... args)
 {
-    SharedPtr<T> component = MakeShared<T>(args...);
+    T *component = new T(args...);
     
-    m_components.push_back(component);
+    m_components[ComponentTypeId::get<T>()] = component;
     component->m_entity = m_weak_this;
     
     return component;
 }
 
 template <class T>
-SharedPtr<T> Entity::getComponent() const
+T *Entity::getComponent()
 {
-    for (int i = 0; i < m_components.size(); ++i)
+    ComponentId id = ComponentTypeId::get<T>();
+    auto it = m_components.find(id);
+    if (it != m_components.end())
     {
-        auto& component = m_components[i];
-        auto t = DynamicCast<T>(component);
-        if (t)
-        {
-            return t;
-        }
+        return static_cast<T *>(m_components[id]);
     }
     
-    return SharedPtr<T>();
+    return nullptr;
+}
+
+template <class T>
+void Entity::removeComponent()
+{
+    auto& it = m_components.erase(ComponentTypeId::get<T>());
+    if (it != m_components.end())
+    {
+        delete it->secend();
+    }
 }
 
 NAMESPACE_REATRIX_ENGINE_END

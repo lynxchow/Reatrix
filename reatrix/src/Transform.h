@@ -18,9 +18,6 @@ class Transform : public Component
 public:
     Transform();
     virtual ~Transform();
-    
-private:
-    static int m_type_id;
 };
 
 NAMESPACE_REATRIX_ENGINE_END

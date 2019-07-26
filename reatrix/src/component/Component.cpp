@@ -10,6 +10,8 @@
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
+unsigned int ComponentTypeId::m_counter = 0;
+
 Component::Component()
 {
     

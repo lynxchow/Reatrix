@@ -43,10 +43,12 @@ class Component : public Object
 {
     friend class Entity;
 public:
-    Component();
     virtual ~Component();
     
     SharedPtr<Entity> getEntity();
+    
+protected:
+    Component();
     
 private:
     WeakPtr<Entity> m_entity;

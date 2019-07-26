@@ -33,11 +33,6 @@ void Entity::destroy(SharedPtr<Entity>& entity)
     entity.reset();
 }
 
-void Entity::removeComponent(const SharedPtr<Component>& component)
-{
-    
-}
-
 bool Entity::operator ==(const SharedPtr<Entity>& right) const
 {
     return this->getUUID() == right->getUUID();
