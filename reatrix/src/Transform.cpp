@@ -20,4 +20,9 @@ Transform::~Transform()
     
 }
 
+void Transform::reset()
+{
+    
+}
+
 NAMESPACE_REATRIX_ENGINE_END

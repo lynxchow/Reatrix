@@ -15,7 +15,6 @@
 #include "container/Vector.h"
 #include "container/Set.h"
 
-
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
 class Entity;

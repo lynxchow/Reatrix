@@ -12,6 +12,7 @@
 #include "Object.h"
 #include "component/Component.h"
 #include "container/Map.h"
+#include "container/Stack.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
@@ -44,18 +45,38 @@ private:
     Entity();
     WeakPtr<Entity> m_weak_this;
     
+    Stack<Component *> *getComponentPool(const ComponentId index) const
+    {
+        return &((*m_component_pools)[index]);
+    }
+    
     bool m_is_enable;
     Map<ComponentId, Component *> m_components;
+    Map<ComponentId, Stack<Component *> > *m_component_pools;
 };
 
-template <class T, typename ...Params>
-T *Entity::addComponent(Params... args)
+template <class T, typename ...Args>
+T *Entity::addComponent(Args... args)
 {
-    T *component = new T(args...);
+    const ComponentId id = ComponentTypeId::get<T>();
+    Stack<Component *> *component_pool = getComponentPool(id);
+    T *component = nullptr;
     
-    m_components[ComponentTypeId::get<T>()] = component;
+    if (component_pool->size() > 0)
+    {
+        component = static_cast<T *>(component_pool->top());
+        component_pool->pop();
+    }
+    else
+    {
+        component = new T();
+    }
+    
+    component->reset(std::forward<Args>(args)...);
+
+    m_components[id] = component;
     component->m_entity = m_weak_this;
-    
+
     return component;
 }
 
@@ -79,10 +100,12 @@ T *Entity::getComponent()
 template <class T>
 void Entity::removeComponent()
 {
-    auto& it = m_components.erase(ComponentTypeId::get<T>());
-    if (it != m_components.end())
+    Component *component = getComponent<T>();
+    if (component)
     {
-        delete it->secend();
+        const ComponentId id = ComponentTypeId::get<T>();
+        m_components.erase(id);
+        getComponentPool(id)->push(component);
     }
 }
 

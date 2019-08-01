@@ -33,6 +33,8 @@ NAMESPACE_REATRIX_ENGINE_USING
     SharedPtr<Entity> entity = Entity::create("test");
     entity->addComponent<Transform>();
     entity->getComponent<Transform>();
+    entity->removeComponent<Transform>();
+    entity->addComponent<Transform>();
     world->addEntity(entity);
     world->addSystem(system);
     [_rtx loadWorld:world];

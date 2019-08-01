@@ -15,8 +15,8 @@
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
+class Pool;
 class World;
-
 class ReatrixImpl;
 
 class Reatrix
@@ -29,6 +29,7 @@ public:
     virtual ~Reatrix();
     bool loadWorld(SharedPtr<World> world);
     SharedPtr<World> currentWorld();
+    Pool *getPool();
     void init();
     void destroy();
     void update();

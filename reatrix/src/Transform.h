@@ -18,6 +18,8 @@ class Transform : public Component
 public:
     Transform();
     virtual ~Transform();
+    
+    void reset();
 };
 
 NAMESPACE_REATRIX_ENGINE_END
