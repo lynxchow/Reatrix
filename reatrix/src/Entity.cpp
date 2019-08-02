@@ -14,10 +14,9 @@ NAMESPACE_REATRIX_ENGINE_BEGIN
 
 SharedPtr<Entity> Entity::create(const String& name)
 {
-    SharedPtr<Entity> entity = SharedPtr<Entity>(new Entity);
-    entity->m_weak_this = entity;
+    SharedPtr<Entity> entity = Reatrix::instance()->getPool()->createEntity();
     entity->setName(name);
-    entity->m_component_pools = Reatrix::instance()->getPool()->getComponentPools();
+    
     return entity;
 }
 

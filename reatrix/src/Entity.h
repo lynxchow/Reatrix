@@ -18,6 +18,7 @@ NAMESPACE_REATRIX_ENGINE_BEGIN
 
 class Entity : public Object
 {
+    friend class Pool;
 public:
     static SharedPtr<Entity> create(const String& name);
     virtual ~Entity();
