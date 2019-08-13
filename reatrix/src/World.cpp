@@ -85,18 +85,6 @@ bool World::removeSystem(const SharedPtr<System> system)
     return false;
 }
 
-bool World::removeEntity(const SharedPtr<Entity>& entity)
-{
-    if (m_entities.find(entity) != m_entities.end())
-    {
-        m_entities.erase(entity);
-        
-        return true;
-    }
-    
-    return false;
-}
-
 SharedPtr<Entity> World::createEntity(const String& name)
 {
     SharedPtr<Entity> entity;

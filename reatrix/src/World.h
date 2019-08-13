@@ -33,19 +33,16 @@ public:
     bool isStarted();
     
     SharedPtr<Entity> createEntity(const String& name);
+    bool hasEntity(const SharedPtr<Entity>& entity) const;
+    void destroyEntity(SharedPtr<Entity> entity);
+    Stack<SharedPtr<Entity> > getEntityPools();
+    Vector<SharedPtr<Entity> > getEntities();
+    void destroyAllEntities();
     
-    bool removeEntity(const SharedPtr<Entity>& entity);
     void addSystem(const SharedPtr<System> system);
     bool removeSystem(const SharedPtr<System> system);
     
-    
     Map<ComponentId, Stack<Component *> > *getComponentPools();
-    Stack<SharedPtr<Entity> > getEntityPools();
-    bool hasEntity(const SharedPtr<Entity>& entity) const;
-    void destroyEntity(SharedPtr<Entity> entity);
-    void destroyAllEntities();
-    Vector<SharedPtr<Entity> > getEntities();
-    
     void clearComponentPool(const ComponentId index);
     void clearComponentPools();
     
