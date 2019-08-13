@@ -25,7 +25,7 @@ public:
     ~Pool();
     Map<ComponentId, Stack<Component *> > *getComponentPools();
     
-    SharedPtr<Entity> createEntity();
+    SharedPtr<Entity> createEntity(const String& name);
     Stack<SharedPtr<Entity> > getEntityPools();
     bool hasEntity(const SharedPtr<Entity>& entity) const;
     void destroyEntity(SharedPtr<Entity> entity);

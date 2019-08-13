@@ -20,7 +20,7 @@ class Entity : public Object
 {
     friend class Pool;
 public:
-    static SharedPtr<Entity> create(const String& name);
+    
     virtual ~Entity();
     
     static void destroy(SharedPtr<Entity>& entity);

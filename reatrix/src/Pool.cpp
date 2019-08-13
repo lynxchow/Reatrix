@@ -21,7 +21,7 @@ Pool::~Pool()
     
 }
 
-SharedPtr<Entity> Pool::createEntity()
+SharedPtr<Entity> Pool::createEntity(const String& name)
 {
     SharedPtr<Entity> entity;
     
@@ -34,7 +34,7 @@ SharedPtr<Entity> Pool::createEntity()
     {
         entity = SharedPtr<Entity>(new Entity());
     }
-    
+    entity->setName(name);
     entity->m_component_pools = &m_component_pools;
     entity->m_weak_this = entity;
     

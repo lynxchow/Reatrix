@@ -8,8 +8,14 @@
 
 #include "DemoSystem.h"
 #include "Timer.h"
+#include "Reatrix.h"
+#include "Pool.h"
+#include "Entity.h"
+#include "Transform.h"
 #include <OpenGL/gl3.h>
 #include <iostream>
+
+NAMESPACE_REATRIX_ENGINE_USING
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -40,6 +46,13 @@ const char *fragmentShaderSource = "#version 330 core\n"
 
 void DemoSystem::onInit()
 {
+    Pool *pool = Reatrix::instance()->getPool();
+    SharedPtr<Entity> entity = pool->createEntity("test");
+    entity->addComponent<Transform>();
+    entity->getComponent<Transform>();
+    entity->removeComponent<Transform>();
+    entity->addComponent<Transform>();
+    
     int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
