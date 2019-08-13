@@ -8,7 +8,6 @@
 
 #include "Reatrix.h"
 #include "World.h"
-#include "Pool.h"
 #include "time/Timer.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
@@ -30,11 +29,6 @@ public:
     SharedPtr<World> currentWorld()
     {
         return m_world;
-    }
-    
-    Pool *getPool()
-    {
-        return &m_pool;
     }
     
     void init()
@@ -68,7 +62,6 @@ public:
     
 private:
     SharedPtr<World> m_world;
-    Pool m_pool;
     
 };
 
@@ -101,11 +94,6 @@ bool Reatrix::loadWorld(SharedPtr<World> app)
 SharedPtr<World> Reatrix::currentWorld()
 {
     return m_impl->currentWorld();
-}
-
-Pool *Reatrix::getPool()
-{
-    return m_impl->getPool();
 }
 
 void Reatrix::init()

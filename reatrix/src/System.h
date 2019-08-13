@@ -10,7 +10,7 @@
 #define _RTX_SYSTEM_H_
 
 #include "Object.h"
-#include <string>
+#include "World.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
@@ -22,6 +22,9 @@ public:
     System();
     virtual ~System();
     bool isStarted();
+    
+protected:
+    World *getWorld();
     
 private:
     void init();
@@ -36,6 +39,7 @@ private:
     virtual void onComponentRemoved(Component* comp);
     
     bool m_is_started;
+    World *m_world;
 };
 
 NAMESPACE_REATRIX_ENGINE_END

@@ -57,6 +57,11 @@ void System::onComponentRemoved(Component* comp)
     
 }
 
+World *System::getWorld()
+{
+    return m_world;
+}
+
 void System::update()
 {
     this->onUpdate();

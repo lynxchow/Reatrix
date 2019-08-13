@@ -9,7 +9,6 @@
 #include "DemoSystem.h"
 #include "Timer.h"
 #include "Reatrix.h"
-#include "Pool.h"
 #include "Entity.h"
 #include "Transform.h"
 #include <OpenGL/gl3.h>
@@ -46,8 +45,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
 
 void DemoSystem::onInit()
 {
-    Pool *pool = Reatrix::instance()->getPool();
-    SharedPtr<Entity> entity = pool->createEntity("test");
+    SharedPtr<Entity> entity = getWorld()->createEntity("test");
     entity->addComponent<Transform>();
     entity->getComponent<Transform>();
     entity->removeComponent<Transform>();

@@ -8,7 +8,6 @@
 
 #include "Entity.h"
 #include "Reatrix.h"
-#include "Pool.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 

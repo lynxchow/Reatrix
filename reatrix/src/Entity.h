@@ -18,7 +18,7 @@ NAMESPACE_REATRIX_ENGINE_BEGIN
 
 class Entity : public Object
 {
-    friend class Pool;
+    friend class World;
 public:
     
     virtual ~Entity();
