@@ -37,6 +37,7 @@
 
 - (void)prepareOpenGL
 {
+    [super prepareOpenGL];
     stop = false;
     
     GLint swapInt = 1;

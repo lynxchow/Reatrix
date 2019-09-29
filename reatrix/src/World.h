@@ -10,8 +10,9 @@
 #define _RTX_SCENE_H_
 
 #include "Object.h"
+#include "Group.h"
+#include "Matcher.h"
 #include "SharedPtr.h"
-#include <string>
 #include "container/Vector.h"
 #include "container/Set.h"
 #include "container/Map.h"
@@ -35,9 +36,12 @@ public:
     SharedPtr<Entity> createEntity(const String& name);
     bool hasEntity(const SharedPtr<Entity>& entity) const;
     void destroyEntity(SharedPtr<Entity> entity);
+    void destroyAllEntities();
     Stack<SharedPtr<Entity> > getEntityPools();
     Vector<SharedPtr<Entity> > getEntities();
-    void destroyAllEntities();
+    
+    SharedPtr<Group> getGroup(const Matcher& matcher);
+    void clearGroups();
     
     void addSystem(const SharedPtr<System> system);
     bool removeSystem(const SharedPtr<System> system);
@@ -56,6 +60,8 @@ private:
     Vector<SharedPtr<Entity> > m_entities_cache;
     Stack<SharedPtr<Entity> > m_reusable_entities;
     Map<ComponentId, Stack<Component *> > m_component_pools;
+    
+    Map<Matcher, SharedPtr<Group> > m_groups;
     
 };
     
