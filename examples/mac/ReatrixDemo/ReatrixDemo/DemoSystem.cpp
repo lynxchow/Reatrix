@@ -45,11 +45,16 @@ const char *fragmentShaderSource = "#version 330 core\n"
 
 void DemoSystem::onInit()
 {
-    SharedPtr<Entity> entity = getWorld()->createEntity("test");
+    SharedPtr<Entity> entity = getWorld()->createEntity("test1");
     entity->addComponent<Transform>();
     entity->getComponent<Transform>();
     entity->removeComponent<Transform>();
     entity->addComponent<Transform>();
+    
+    SharedPtr<Entity> entity2 = getWorld()->createEntity("test2");
+    entity2->addComponent<Transform>();
+    
+    SharedPtr<Entity> entity3 = getWorld()->createEntity("test3");
     
     int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -139,6 +144,13 @@ void DemoSystem::onUpdate()
     glUseProgram(shaderProgram);
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    
+    Matcher ids = Matcher::allOf({ComponentTypeId::get<Transform>()});
+    Vector<SharedPtr<Entity> > entites = getWorld()->getGroup(ids)->getEntities();
+    for (size_t i = 0, size = entites.size(); i < size; i++)
+    {
+        std::cout << "entity: " << entites[i]->getName().c_str() << std::endl;
+    }
 }
 
 #pragma GCC diagnostic pop

@@ -40,7 +40,7 @@ public:
     Stack<SharedPtr<Entity> > getEntityPools();
     Vector<SharedPtr<Entity> > getEntities();
     
-    SharedPtr<Group> getGroup(const Matcher& matcher);
+    SharedPtr<Group> getGroup(Matcher matcher);
     void clearGroups();
     
     void addSystem(const SharedPtr<System> system);
@@ -60,6 +60,7 @@ private:
     Vector<SharedPtr<Entity> > m_entities_cache;
     Stack<SharedPtr<Entity> > m_reusable_entities;
     Map<ComponentId, Stack<Component *> > m_component_pools;
+    Map<ComponentId, Vector<WeakPtr<Group> > > m_groups_for_index;
     
     Map<Matcher, SharedPtr<Group> > m_groups;
     

@@ -65,6 +65,41 @@ bool World::isStarted()
     return m_is_started;
 }
 
+SharedPtr<Group> World::getGroup(Matcher matcher)
+{
+    std::shared_ptr<Group> group = nullptr;
+
+    auto it = m_groups.find(matcher);
+
+    if (it == m_groups.end())
+    {
+        group = std::shared_ptr<Group>(new Group(matcher));
+//        group->SetInstance(group);
+
+        auto entities = getEntities();
+
+        for (int i = 0, size = entities.size(); i < size; i++)
+        {
+            group->handleEntitySilently(entities[i]);
+        }
+
+        m_groups[group->getMatcher()] = group;
+
+        for (int i = 0, size = matcher.getIndices().size(); i < size; i++)
+        {
+            m_groups_for_index[matcher.getIndices()[i]].push_back(group);
+        }
+
+//        OnGroupCreated(this, group);
+    }
+    else
+    {
+        group = it->second;
+    }
+
+    return group;
+}
+
 void World::addSystem(const SharedPtr<System> system)
 {
     m_systems.push_back(system);

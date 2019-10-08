@@ -36,6 +36,24 @@ bool Entity::operator ==(const Entity right) const
     return this->getUUID() == right.getUUID();
 }
 
+bool Entity::hasComponent(const ComponentId index) const
+{
+    return (m_components.find(index) != m_components.end());
+}
+
+bool Entity::hasComponents(const Vector<ComponentId >& indices) const
+{
+    for (const ComponentId &index : indices)
+    {
+        if (!hasComponent(index))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 NAMESPACE_REATRIX_ENGINE_END
 
 namespace std

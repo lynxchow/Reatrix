@@ -13,6 +13,7 @@
 #include "component/Component.h"
 #include "container/Map.h"
 #include "container/Stack.h"
+#include "container/Vector.h"
 
 NAMESPACE_REATRIX_ENGINE_BEGIN
 
@@ -39,6 +40,9 @@ public:
     
     bool isEnable() const { return m_is_enable; }
     void setEnable(bool enable) { m_is_enable = enable; }
+    
+    bool hasComponent(const ComponentId index) const;
+    bool hasComponents(const Vector<ComponentId >& indices) const;
     
     bool operator ==(const SharedPtr<Entity>& right) const;
     bool operator ==(const Entity right) const;

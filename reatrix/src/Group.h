@@ -23,12 +23,18 @@ public:
     Group(const Matcher& matcher);
     unsigned int count() const;
     Vector<SharedPtr<Entity> > getEntities();
-    Matcher *getMatcher() const;
+    Matcher getMatcher() const;
+    
+protected:
+    void handleEntitySilently(SharedPtr<Entity> entity);
     
 private:
+    bool addEntitySilently(SharedPtr<Entity> entity);
+    bool removeEntitySilently(SharedPtr<Entity> entity);
+    
     Matcher m_matcher;
-    Set<SharedPtr<Entity> > mEntities;
-    Vector<SharedPtr<Entity> > mEntitiesCache;
+    Set<SharedPtr<Entity> > m_entities;
+    Vector<SharedPtr<Entity> > m_entities_cache;
 };
 
 NAMESPACE_REATRIX_ENGINE_END

@@ -23,11 +23,22 @@ public:
     ~Matcher() {}
     static const Matcher allOf(const Vector<ComponentId> indices);
     unsigned int getHashCode() const;
-//    Vector<ComponentTypeId> distinctIndices(Vector<ComponentId> indices);
+    bool matches(const SharedPtr<Entity>& entity);
+    const Vector<ComponentId> getIndices();
+    bool isEmpty() const;
+    bool compareIndices(const Matcher& matcher) const;
+    
+    bool operator ==(const Matcher right) const;
+    
 protected:
-    Vector<ComponentTypeId> m_all_of_indices;
+    Vector<ComponentId> m_indices;
+    Vector<ComponentId> m_all_of_indices;
     
 private:
+    static Vector<ComponentId> distinctIndices(Vector<ComponentId> indices);
+    void calculateHash();
+    unsigned int applyHash(unsigned int hash, const Vector<ComponentId> indices, int i1, int i2) const;
+    
     unsigned int m_cached_hash = 0;
 };
 
