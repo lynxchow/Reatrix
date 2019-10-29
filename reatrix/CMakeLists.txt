@@ -11,6 +11,8 @@ get_filename_component(RTX_LIB_DIR
 include_directories(src)
 #file(GLOB_RECURSE DIR_SRCS mac/*.cpp mac/*.h mac/*.c mac/*cc mac/*.m mac/*.mm)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
 file(GLOB RTX_LIB_SRCS
      ${RTX_LIB_DIR}/*.h
      ${RTX_LIB_DIR}/*.cpp

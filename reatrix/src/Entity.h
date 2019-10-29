@@ -50,6 +50,12 @@ private:
     Entity();
     WeakPtr<Entity> m_weak_this;
     
+    using EntityChanged = std::function<void(SharedPtr<Entity> entity, ComponentId index, Component* component)>;
+    using EntityReleased = std::function<void(Entity* entity)>;
+    
+    EntityChanged on_component_added;
+    EntityReleased on_entity_released;
+    
     Stack<Component *> *getComponentPool(const ComponentId index) const
     {
         return &((*m_component_pools)[index]);

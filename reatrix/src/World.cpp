@@ -134,8 +134,14 @@ SharedPtr<Entity> World::createEntity(const String& name)
         entity = SharedPtr<Entity>(new Entity());
     }
     entity->setName(name);
+    entity->setEnable(true);
     entity->m_component_pools = &m_component_pools;
     entity->m_weak_this = entity;
+
+    entity->on_component_added = [this](SharedPtr<Entity> entity, ComponentId index, Component* component)
+    {
+
+    };
     
     m_entities.insert(entity);
     m_entities_cache.clear();
